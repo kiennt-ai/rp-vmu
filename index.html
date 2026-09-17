@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THỐNG KÊ & ĐỐI SÁNH NĂNG SUẤT NCKH GIỮA CÁC KHOA / VIỆN (2025 - 2026) - VMU</title>
+  <link rel="icon" type="image/png" href="Logo_VMU.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'Inter', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Be Vietnam Pro"', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace']
+          },
+          colors: {
+            vimaru: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc7fb',
+              400: '#38a9f7',
+              500: '#0e8ce9',
+              600: '#026fc7',
+              700: '#0358a1',
+              800: '#074b85',
+              900: '#0b3f6f',
+              950: '#07284b',
+            },
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Be Vietnam Pro', 'Inter', system-ui, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .card-shadow {
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+    .card-shadow-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 14px 28px -4px rgba(7, 75, 133, 0.12), 0 6px 12px -2px rgba(7, 75, 133, 0.06);
+      transform: translateY(-2px);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Print / PDF Optimization for A4 Landscape */
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm 10mm 10mm 10mm;
+      }
+      html, body {
+        width: 100% !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 8pt !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print, #themeToggleBtn, #quickSearchBar, #selectSortDoiSanh, #filterPillsBlock, button, input, select {
+        display: none !important;
+      }
+      header {
+        position: static !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border-bottom: 2px solid #0f172a !important;
+        padding: 0 0 8px 0 !important;
+        margin-bottom: 10px !important;
+        break-inside: avoid !important;
+      }
+      header * {
+        color: #0f172a !important;
+        text-shadow: none !important;
+      }
+      .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-5 {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        margin-bottom: 10px !important;
+        break-inside: avoid !important;
+      }
+      .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-5 > div {
+        flex: 1 1 20% !important;
+        padding: 6px !important;
+        border: 1px solid #cbd5e1 !important;
+        background: #ffffff !important;
+      }
+      .grid.grid-cols-1.lg\:grid-cols-2 {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 12px !important;
+        margin-bottom: 12px !important;
+        break-inside: avoid !important;
+      }
+      .grid.grid-cols-1.lg\:grid-cols-2 > div {
+        flex: 1 1 50% !important;
+        border: 1px solid #cbd5e1 !important;
+        background: #ffffff !important;
+        padding: 8px !important;
+      }
+      .chart-container-box {
+        height: 190px !important;
+        max-height: 190px !important;
+      }
+      canvas {
+        max-height: 185px !important;
+      }
+      table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        font-size: 7.5pt !important;
+      }
+      th, td {
+        padding: 3px 5px !important;
+        border: 0.5pt solid #64748b !important;
+      }
+      thead {
+        display: table-header-group !important;
+      }
+      tfoot {
+        display: table-footer-group !important;
+      }
+      .print-signature-block {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col custom-scrollbar bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
+
+  <!-- TOP APP HEADER -->
+  <header class="bg-gradient-to-r from-vimaru-950 via-vimaru-900 to-vimaru-800 text-white sticky top-0 z-40 shadow-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <!-- Brand & Title -->
+        <div class="flex items-center gap-3.5 min-w-0">
+          <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-inner flex-shrink-0 p-1">
+            <i class="fa-solid fa-scale-balanced text-cyan-300 text-2xl"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-300 leading-tight">
+              TRƯỜNG ĐẠI HỌC HÀNG HẢI VIỆT NAM • PHÒNG KHOA HỌC - CÔNG NGHỆ
+            </div>
+            <h1 class="text-base sm:text-lg lg:text-xl font-black text-white tracking-tight mt-0.5 leading-snug">
+              THỐNG KÊ & ĐỐI SÁNH NĂNG SUẤT NCKH GIỮA CÁC KHOA / VIỆN
+            </h1>
+            <div class="text-[11px] text-cyan-300 font-medium">
+              Đánh giá tương quan quy mô đội ngũ & kết quả NCKH phục vụ Hội đồng Thi đua - Khen thưởng năm học 2025 - 2026
+            </div>
+          </div>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="flex items-center gap-2 no-print self-end md:self-center">
+          <button id="themeToggleBtn" onclick="toggleTheme()" class="bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-xl text-xs font-bold border border-white/20 shadow-sm transition flex items-center gap-1.5 cursor-pointer" title="Chuyển chế độ Sáng / Tối">
+            <i id="themeToggleIcon" class="fa-solid fa-moon text-yellow-300"></i>
+            <span id="themeToggleText">Giao diện Tối</span>
+          </button>
+          <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold border border-white/20 shadow-sm transition flex items-center gap-1.5" title="In báo cáo A4 Landscape">
+            <i class="fa-solid fa-print text-cyan-300"></i>
+            <span>In Báo Cáo</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5">
+
+    <!-- BANNER TIÊU CHÍ VÀ NGUYÊN TẮC ĐỐI SÁNH -->
+    <div class="bg-gradient-to-r from-vimaru-950 via-vimaru-900 to-indigo-950 rounded-3xl p-5 text-white border border-white/10 shadow-md relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 opacity-10 text-cyan-300 text-9xl pointer-events-none">
+        <i class="fa-solid fa-ranking-star"></i>
+      </div>
+      <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-300/30">
+              <i class="fa-solid fa-award mr-1"></i>Hệ Thống Tiêu Chí Đánh Giá Hội Đồng
+            </span>
+            <span class="text-xs text-slate-300">Áp dụng cho 15 Khoa / Viện toàn trường</span>
+          </div>
+          <h2 class="text-lg sm:text-xl font-black text-white mt-1 tracking-tight">
+            Khung Đối Sánh Hiệu Suất NCKH Cấp Cơ Sở Năm Học 2025 - 2026
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-4xl leading-relaxed">
+            Hội đồng đánh giá và phân loại đơn vị xuất sắc dựa trên tương quan giữa <strong class="text-white">Quy mô đội ngũ (Số CBGV)</strong> và <strong class="text-white">Kết quả NCKH</strong> theo 02 tiêu chí định lượng then chốt:
+            <span class="text-emerald-300 font-semibold">(1) Tỷ số Công trình quy đổi / CBGV (Chuẩn: 1,69 CT/người)</span> và
+            <span class="text-cyan-300 font-semibold">(2) Tỷ số Tổng giờ quy đổi / CBGV (Chuẩn: 1.206,51 h/người)</span>.
+            Điểm tổng hợp là trung bình cộng chuẩn hóa (%) của 2 tiêu chí so với ngưỡng trung bình toàn trường.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/20 text-center">
+            <div class="text-[10px] uppercase font-bold text-amber-300">Tổng Giờ Quy Đổi</div>
+            <div class="text-xl font-black text-white tabular-nums">740.794,09 h</div>
+            <div class="text-[10px] text-slate-300">15 Đơn vị • 614 CBGV</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 THẺ CHỈ SỐ VĨ MÔ TỔNG QUAN -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+      <!-- Card 1: Tổng CBGV -->
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 card-shadow flex items-center gap-3.5">
+        <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-cyan-400 flex items-center justify-center text-xl flex-shrink-0">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Tổng CB, GV có mặt</div>
+          <div class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tabular-nums">614 <span class="text-xs font-semibold text-slate-500">người</span></div>
+          <div class="text-[11px] text-slate-400 dark:text-slate-500">15 Khoa / Viện cơ hữu</div>
+        </div>
+      </div>
+
+      <!-- Card 2: Tổng Công trình quy đổi -->
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 card-shadow flex items-center gap-3.5">
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0">
+          <i class="fa-solid fa-book-bookmark"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Tổng Công trình quy đổi</div>
+          <div class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100 tabular-nums">1.035 <span class="text-xs font-semibold text-slate-500">CT</span></div>
+          <div class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">Được duyệt tính điểm quy đổi</div>
+        </div>
+      </div>
+
+      <!-- Card 3: Chuẩn TB Tiêu chí 1 -->
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border-2 border-emerald-500/30 dark:border-emerald-500/40 card-shadow flex items-center gap-3.5 bg-emerald-50/20 dark:bg-emerald-950/10">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+          <i class="fa-solid fa-chart-simple"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="text-xs text-emerald-800 dark:text-emerald-300 font-bold uppercase tracking-tight">TB Tiêu Chí 1 (CT/CB)</div>
+          <div class="text-xl sm:text-2xl font-black text-emerald-700 dark:text-emerald-300 tabular-nums">1,69 <span class="text-xs font-normal">CT/người</span></div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+            <strong class="text-emerald-600 dark:text-emerald-400">7/15</strong> đơn vị đạt ≥ chuẩn
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Chuẩn TB Tiêu chí 2 -->
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border-2 border-cyan-500/30 dark:border-cyan-500/40 card-shadow flex items-center gap-3.5 bg-cyan-50/20 dark:bg-cyan-950/10">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="text-xs text-cyan-800 dark:text-cyan-300 font-bold uppercase tracking-tight">TB Tiêu Chí 2 (Giờ/CB)</div>
+          <div class="text-xl sm:text-2xl font-black text-cyan-700 dark:text-cyan-300 tabular-nums">1.206,51 <span class="text-xs font-normal">h/người</span></div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+            <strong class="text-cyan-600 dark:text-cyan-400">6/15</strong> đơn vị đạt ≥ chuẩn
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Đơn vị xuất sắc toàn diện -->
+      <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border-2 border-amber-500/30 dark:border-amber-500/40 card-shadow flex items-center gap-3.5 bg-amber-50/20 dark:bg-amber-950/10">
+        <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="text-xs text-amber-800 dark:text-amber-300 font-bold uppercase tracking-tight">Vượt Cả 2 Chuẩn</div>
+          <div class="text-xl sm:text-2xl font-black text-amber-700 dark:text-amber-300 tabular-nums">6 <span class="text-xs font-normal">Khoa/Viện</span></div>
+          <div class="text-[11px] text-amber-600 dark:text-amber-400 font-semibold">Xuất sắc toàn diện</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KHỐI 02 BIỂU ĐỒ ĐỐI SÁNH ĐỊNH LƯỢNG KÈM ĐƯỜNG CHUẨN TOÀN TRƯỜNG -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <!-- Biểu đồ 1: Tiêu chí 1 -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 card-shadow flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-slate-150 dark:border-slate-800">
+            <div>
+              <h3 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                Tiêu Chí 1: Tỷ Số Công Trình / Cán Bộ - Giảng Viên
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Số công trình tính điểm quy đổi / Số CBGV đơn vị (Sắp xếp giảm dần)
+              </p>
+            </div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">
+              TB Chuẩn: 1,69 CT
+            </span>
+          </div>
+          <div class="chart-container-box h-80 sm:h-96 mt-3 relative">
+            <canvas id="chartDoiSanhCongTrinh"></canvas>
+          </div>
+        </div>
+        <div class="text-[11px] text-slate-500 dark:text-slate-400 pt-2.5 border-t border-slate-150 dark:border-slate-800 flex items-center justify-between">
+          <span><i class="fa-solid fa-circle-info text-rose-500 mr-1"></i>Đường nét đứt màu đỏ là ngưỡng Trung bình toàn trường (1,69 CT/người)</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">7/15 đơn vị đạt ≥ mức TB</span>
+        </div>
+      </div>
+
+      <!-- Biểu đồ 2: Tiêu chí 2 -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 card-shadow flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-slate-150 dark:border-slate-800">
+            <div>
+              <h3 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                Tiêu Chí 2: Tỷ Số Tổng Giờ Quy Đổi / Cán Bộ - Giảng Viên
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Tổng số giờ NCKH quy đổi / Số CBGV đơn vị (Sắp xếp giảm dần)
+              </p>
+            </div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-cyan-300">
+              TB Chuẩn: 1.206,51 h
+            </span>
+          </div>
+          <div class="chart-container-box h-80 sm:h-96 mt-3 relative">
+            <canvas id="chartDoiSanhGio"></canvas>
+          </div>
+        </div>
+        <div class="text-[11px] text-slate-500 dark:text-slate-400 pt-2.5 border-t border-slate-150 dark:border-slate-800 flex items-center justify-between">
+          <span><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i>Đường nét đứt màu vàng là ngưỡng Trung bình toàn trường (1.206,51 h/người)</span>
+          <span class="font-bold text-blue-600 dark:text-cyan-400">6/15 đơn vị đạt ≥ mức TB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIỂU ĐỒ BỔ TRỢ: MA TRẬN TƯƠNG QUAN QUY MÔ VS NĂNG SUẤT NCKH -->
+    <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 card-shadow">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-3 border-b border-slate-150 dark:border-slate-800">
+        <div>
+          <h3 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
+            <i class="fa-solid fa-diagram-project text-indigo-500"></i>
+            Ma Trận Tương Quan: Quy Mô Đội Ngũ (Trục X) vs Điểm Hiệu Suất NCKH Chuẩn Hóa (Trục Y)
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            Bong bóng thể hiện 15 Khoa/Viện. Kích thước bong bóng tỷ lệ thuận với Tổng số giờ NCKH của đơn vị.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Vượt 2 chuẩn</span>
+          <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-cyan-500 inline-block"></span> Vượt chuẩn CT</span>
+          <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Dưới chuẩn TB</span>
+        </div>
+      </div>
+      <div class="chart-container-box h-80 sm:h-96 mt-3 relative">
+        <canvas id="chartCorrelation"></canvas>
+      </div>
+    </div>
+
+    <!-- BẢNG XẾP HẠNG & CHỈ SỐ ĐỐI SÁNH HIỆU SUẤT (15 KHOA / VIỆN) -->
+    <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 card-shadow space-y-4">
+      
+      <!-- Table Header Bar & Sorting Controls -->
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-3 border-b border-slate-200/80 dark:border-slate-800">
+        <div>
+          <h3 class="font-black text-base sm:text-lg text-slate-900 dark:text-slate-100 flex items-center gap-2">
+            <i class="fa-solid fa-ranking-star text-amber-500"></i>
+            Bảng Xếp Hạng & Chỉ Số Đối Sánh Hiệu Suất (15 Khoa / Viện)
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            Cơ sở đánh giá thi đua khen thưởng năm học 2025 - 2026. Toàn bộ 15 Khoa/Viện đã được tích hợp đầy đủ.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <!-- Search Box -->
+          <div class="relative min-w-[200px]" id="quickSearchBar">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+            <input type="text" id="searchInput" oninput="onSearchChange()" placeholder="Tìm nhanh Khoa/Viện..." class="w-full pl-8 pr-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-vimaru-500 focus:outline-none">
+          </div>
+
+          <!-- Sort Select Dropdown with exactly the 7 criteria requested -->
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-400 flex-shrink-0">Sắp xếp:</span>
+            <select id="selectSortDoiSanh" onchange="onSortDoiSanhChange()" class="bg-slate-50 dark:bg-slate-800 border-2 border-amber-400 dark:border-amber-600 rounded-xl px-3 py-1.5 text-xs font-black text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-amber-500 shadow-sm cursor-pointer">
+              <option value="avg_score_desc">★ 1. Trung bình cộng 2 tiêu chí (Chuẩn hóa % - Giảm dần)</option>
+              <option value="avg_rank_asc">2. Trung bình cộng thứ hạng 2 tiêu chí (Rank tốt nhất)</option>
+              <option value="ct_per_gv_desc">3. Tỷ số công trình / Cán bộ - Giảng viên (Giảm dần)</option>
+              <option value="gio_per_gv_desc">4. Tỷ số giờ khoa học quy đổi / Cán bộ - Giảng viên (Giảm dần)</option>
+              <option value="tong_gio_desc">5. Tổng số giờ NCKH các Khoa/Viện (Giảm dần)</option>
+              <option value="so_ct_desc">6. Số công trình (Giảm dần)</option>
+              <option value="so_gv_desc">7. Số Cán bộ Giảng viên (Giảm dần)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 text-xs no-print" id="filterPillsBlock">
+        <span class="text-slate-500 font-medium text-xs mr-1">Bộ lọc nhanh:</span>
+        <button onclick="setFilterStatus('all')" id="pill_all" class="px-2.5 py-1 rounded-lg font-bold bg-vimaru-700 text-white shadow-xs transition">Tất cả (15)</button>
+        <button onclick="setFilterStatus('excellent')" id="pill_excellent" class="px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-100 hover:text-emerald-800 transition">Vượt cả 2 chuẩn (6)</button>
+        <button onclick="setFilterStatus('ct_pass')" id="pill_ct_pass" class="px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-cyan-100 hover:text-cyan-800 transition">Vượt chuẩn CT (7)</button>
+        <button onclick="setFilterStatus('gio_pass')" id="pill_gio_pass" class="px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-100 hover:text-blue-800 transition">Vượt chuẩn Giờ (6)</button>
+        <button onclick="setFilterStatus('improve')" id="pill_improve" class="px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-amber-100 hover:text-amber-800 transition">Cần phấn đấu (8)</button>
+      </div>
+
+      <!-- Table Container -->
+      <div class="overflow-x-auto custom-scrollbar">
+        <table id="tableDoiSanh" class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-extrabold border-b border-slate-300 dark:border-slate-700 select-none">
+              <th class="py-3.5 px-3 text-center w-12 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('rank')" title="Sắp xếp theo thứ hạng">
+                Hạng <i id="sortIcon_rank" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-4 min-w-[200px] cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('don_vi')" title="Sắp xếp theo tên đơn vị">
+                Khoa / Viện / Đơn vị <i id="sortIcon_don_vi" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-3 text-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('so_gv')" title="Sắp xếp theo số CBGV">
+                Số CB, GV có mặt <i id="sortIcon_so_gv" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-3 text-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('so_ct')" title="Sắp xếp theo số công trình">
+                Số Công trình quy đổi <i id="sortIcon_so_ct" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-3 text-right cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('ct_per_gv')" title="Sắp xếp theo Tỷ số CT / CBGV">
+                Tỷ số CT / Cán bộ <i id="sortIcon_ct_per_gv" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-2 text-center w-16 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('rank_ct')" title="Sắp xếp theo Hạng CT">
+                Hạng CT <i id="sortIcon_rank_ct" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-3 text-right cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('tong_gio')" title="Sắp xếp theo Tổng giờ quy đổi">
+                Tổng giờ quy đổi (h) <i id="sortIcon_tong_gio" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-3 text-right cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('gio_per_gv')" title="Sắp xếp theo Tỷ số Giờ / CBGV">
+                Tỷ số Giờ / Cán bộ (h) <i id="sortIcon_gio_per_gv" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-2 text-center w-16 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('rank_gio')" title="Sắp xếp theo Hạng Giờ">
+                Hạng Giờ <i id="sortIcon_rank_gio" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-3 text-right cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition bg-amber-50/80 dark:bg-amber-950/30 text-amber-900 dark:text-amber-200 font-black border-l border-amber-200/80 dark:border-amber-800/60" onclick="toggleSortColumn('avg_score')" title="Sắp xếp theo Điểm TB 2 tiêu chí chuẩn hóa %">
+                Điểm TB 2 Tiêu Chí <i id="sortIcon_avg_score" class="fa-solid fa-sort-down ml-1 text-amber-600"></i>
+              </th>
+              <th class="py-3.5 px-2 text-center w-16 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('avg_rank')" title="Sắp xếp theo Trung bình thứ hạng">
+                Rank TB <i id="sortIcon_avg_rank" class="fa-solid fa-sort ml-1 text-slate-400"></i>
+              </th>
+              <th class="py-3.5 px-4 text-center min-w-[210px] whitespace-nowrap">Đánh giá so với Chuẩn TB</th>
+              <th class="py-3.5 px-2 text-center no-print w-16">Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyDoiSanh" class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300 font-medium">
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(1)" data-unit-id="1">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">1</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Công trình</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(KCT)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">44</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">124</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-black">
+                2,82 <i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#1</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">82.806,16</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-600 dark:text-cyan-300 font-black">
+                1.881,96 <i class="fa-solid fa-caret-up text-blue-500 text-xs ml-0.5" title="Vượt chuẩn Giờ"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#1</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-emerald-50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 font-black">
+                161,7%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                1,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  Xuất sắc (Vượt cả 2 chuẩn)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(1)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(2)" data-unit-id="2">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">2</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-chart-line"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Kinh tế</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(KKT)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">74</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">185</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-black">
+                2,50 <i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#2</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">130.814,78</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-600 dark:text-cyan-300 font-black">
+                1.767,77 <i class="fa-solid fa-caret-up text-blue-500 text-xs ml-0.5" title="Vượt chuẩn Giờ"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#2</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-emerald-50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 font-black">
+                147,4%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                2,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  Xuất sắc (Vượt cả 2 chuẩn)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(2)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(3)" data-unit-id="3">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">3</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-bolt"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Điện - Điện tử</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(DDT)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">46</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">112</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-black">
+                2,43 <i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#3</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">66.432,85</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-600 dark:text-cyan-300 font-black">
+                1.444,19 <i class="fa-solid fa-caret-up text-blue-500 text-xs ml-0.5" title="Vượt chuẩn Giờ"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#3</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-emerald-50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 font-black">
+                131,9%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                3,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  Xuất sắc (Vượt cả 2 chuẩn)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(3)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(4)" data-unit-id="4">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">4</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-laptop-code"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Công nghệ thông tin</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(CNTT)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">27</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">52</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-black">
+                1,93 <i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#4</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">36.838,11</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-600 dark:text-cyan-300 font-black">
+                1.364,37 <i class="fa-solid fa-caret-up text-blue-500 text-xs ml-0.5" title="Vượt chuẩn Giờ"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#4</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                113,8%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                4,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  Xuất sắc (Vượt cả 2 chuẩn)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(4)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(5)" data-unit-id="5">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">5</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-coins"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Quản trị - Tài chính</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(QTC)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">55</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">106</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-black">
+                1,93 <i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#5</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">70.793,65</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-600 dark:text-cyan-300 font-black">
+                1.287,16 <i class="fa-solid fa-caret-up text-blue-500 text-xs ml-0.5" title="Vượt chuẩn Giờ"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#6</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                110,6%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                5,5
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  Xuất sắc (Vượt cả 2 chuẩn)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(5)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(6)" data-unit-id="6">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">6</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-leaf"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Viện Môi trường</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(VMT)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">27</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">48</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-black">
+                1,78 <i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#6</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">36.011,11</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-600 dark:text-cyan-300 font-black">
+                1.333,74 <i class="fa-solid fa-caret-up text-blue-500 text-xs ml-0.5" title="Vượt chuẩn Giờ"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#5</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                108,0%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                5,5
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  Xuất sắc (Vượt cả 2 chuẩn)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(6)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(7)" data-unit-id="7">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">7</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-anchor"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Hàng hải</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(KHH)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">77</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">132</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-black">
+                1,71 <i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#7</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">82.424,91</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1.070,45 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#8</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                95,1%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                7,5
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-cyan-100 text-cyan-800 dark:bg-cyan-950/80 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-700">
+                  Đạt chuẩn CT (Vượt chuẩn 1)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(7)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(8)" data-unit-id="8">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">8</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-book-open"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Lý luận chính trị</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(LLCT)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">27</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">44</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1,63 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#8</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">24.859,98</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                920,74 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#12</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                86,5%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                10,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(8)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(9)" data-unit-id="9">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">9</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-ship"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Đóng tàu</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(KDT)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">19</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">28</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1,47 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#9</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">18.935,16</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                996,59 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#9</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                84,9%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                9,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(9)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(10)" data-unit-id="10">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">10</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-gears"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Viện Cơ khí</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(VCK)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">42</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">50</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1,19 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#11</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">47.189,93</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1.123,57 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#7</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                81,8%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                9,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(10)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(11)" data-unit-id="11">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">11</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-cogs"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Máy tàu biển</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(MTB)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">51</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">62</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1,22 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#10</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">50.159,69</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                983,52 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#10</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                77,0%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                10,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(11)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(12)" data-unit-id="12">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">12</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-atom"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Cơ sở - Cơ bản</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(CSCB)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">46</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">48</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1,04 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#12</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">42.377,76</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                921,26 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#11</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                69,1%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                11,5
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(12)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(13)" data-unit-id="13">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">13</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-person-running"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">TT. Giáo dục thể chất HH</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(TTGDTC)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">18</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">16</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                0,89 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#13</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">15.149,99</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                841,67 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#13</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                61,3%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                13,0
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(13)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(14)" data-unit-id="14">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">14</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Trung tâm GDQP AN</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(TTGDQP)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">11</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">7</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                0,64 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#14</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">5.950,00</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                540,91 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#15</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                41,4%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                14,5
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(14)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(15)" data-unit-id="15">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">15</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-language"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Ngoại ngữ</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(KNN)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">50</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">21</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                0,42 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#15</td>
+              <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">30.050,01</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                601,00 
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold whitespace-nowrap">#14</td>
+              <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 whitespace-nowrap bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold">
+                37,3%
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                14,5
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  Cần phấn đấu (Dưới mức TB)
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(15)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="bg-slate-100 dark:bg-slate-800 font-extrabold text-slate-900 dark:text-slate-100 border-t-2 border-slate-300 dark:border-slate-700">
+            <tr>
+              <td colspan="2" class="py-3.5 px-4 text-center font-black">TOÀN TRƯỜNG (TRUNG BÌNH CHUẨN)</td>
+              <td class="py-3.5 px-3 text-center font-black">614</td>
+              <td class="py-3.5 px-3 text-center font-black">1.035</td>
+              <td class="py-3.5 px-3 text-right font-black text-emerald-600 dark:text-emerald-400 tabular-nums">1,69 CT/người</td>
+              <td class="py-3.5 px-2 text-center text-xs text-slate-500">Mức TB</td>
+              <td class="py-3.5 px-3 text-right font-black text-slate-900 dark:text-cyan-300 tabular-nums">740.794,09 h</td>
+              <td class="py-3.5 px-3 text-right font-black text-blue-600 dark:text-cyan-300 tabular-nums">1.206,51 h/người</td>
+              <td class="py-3.5 px-2 text-center text-xs text-slate-500">Mức TB</td>
+              <td class="py-3.5 px-3 text-right font-black text-amber-700 dark:text-amber-300 bg-amber-100/50 dark:bg-amber-950/40 tabular-nums border-l border-amber-200 dark:border-amber-800">
+                100,0% <span class="text-[10px] font-normal block text-slate-500">Chuẩn toàn trường</span>
+              </td>
+              <td class="py-3.5 px-2 text-center text-xs text-slate-500">-</td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-vimaru-100 dark:bg-slate-700 text-vimaru-900 dark:text-cyan-300">
+                  Ngưỡng Đối Sánh
+                </span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Chú giải phương pháp tính toán -->
+      <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 space-y-1.5 leading-relaxed">
+        <div class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-info text-cyan-600 dark:text-cyan-400"></i>
+          Ghi chú & Phương pháp tính toán đối sánh:
+        </div>
+        <ul class="list-disc list-inside space-y-1 pl-1">
+          <li><strong>Tiêu chí 1 (Tỷ số Công trình quy đổi / CBGV):</strong> Tổng số công trình khoa học được Hội đồng ghi nhận tính điểm quy đổi chia cho số CB, GV cơ hữu của đơn vị. Chuẩn toàn trường = <span class="font-semibold text-emerald-700 dark:text-emerald-300">1,69 CT/người</span>.</li>
+          <li><strong>Tiêu chí 2 (Tỷ số Tổng giờ quy đổi / CBGV):</strong> Tổng số giờ NCKH quy đổi trong năm của đơn vị chia cho số CB, GV cơ hữu. Chuẩn toàn trường = <span class="font-semibold text-blue-700 dark:text-cyan-300">1.206,51 h/người</span>.</li>
+          <li><strong>Điểm TB 2 Tiêu Chí (% Chuẩn hóa):</strong> Trung bình cộng tỷ lệ % hoàn thành so với mức chuẩn toàn trường: <code>Điểm TB (%) = [(Tỷ số CT / 1,69) + (Tỷ số Giờ / 1.206,51)] / 2 * 100%</code>. Mức 100% là mức trung bình chuẩn toàn trường.</li>
+          <li><strong>Rank TB:</strong> Trung bình cộng thứ hạng của đơn vị ở 2 tiêu chí (Hạng CT + Hạng Giờ)/2. Điểm rank càng nhỏ thể hiện vị trí càng xuất sắc.</li>
+          <li><strong>Xếp loại Hội đồng:</strong> Đơn vị đạt <span class="font-bold text-emerald-600">Xuất sắc</span> khi vượt chuẩn cả 2 tiêu chí; <span class="font-bold text-cyan-600">Đạt chuẩn CT</span> hoặc <span class="font-bold text-blue-600">Đạt chuẩn Giờ</span> khi vượt 1 trong 2 tiêu chí; <span class="font-bold text-amber-600">Cần phấn đấu</span> khi dưới mức TB cả 2 tiêu chí.</li>
+        </ul>
+      </div>
+
+      <!-- Khối chữ ký hành chính cho chế độ In ấn A4 Landscape -->
+      <div class="print-signature-block hidden mt-8 pt-4 border-t border-slate-400 text-xs">
+        <div class="grid grid-cols-3 text-center">
+          <div>
+            <div class="font-bold uppercase">NGƯỜI LẬP BIỂU</div>
+            <div class="text-[11px] text-slate-500 italic mt-1">Chuyên viên phụ trách KH-CN</div>
+            <div class="h-20"></div>
+            <div class="font-black text-slate-900">ThS. Nguyễn Trung Kiên</div>
+          </div>
+          <div>
+            <div class="font-bold uppercase">TRƯỞNG PHÒNG KH-CN</div>
+            <div class="text-[11px] text-slate-500 italic mt-1">Xác nhận khối lượng</div>
+            <div class="h-20"></div>
+            <div class="font-black text-slate-900">PGS.TS. Phạm Văn Thuần</div>
+          </div>
+          <div>
+            <div class="font-bold uppercase">HIỆU TRƯỞNG</div>
+            <div class="text-[11px] text-slate-500 italic mt-1">Chủ tịch Hội đồng TĐ-KT</div>
+            <div class="h-20"></div>
+            <div class="font-black text-slate-900">PGS.TS. Phạm Xuân Dương</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- POPUP CHI TIẾT ĐƠN VỊ (UNIT DETAIL MODAL) -->
+  <div id="unitDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+    <div class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm transition-opacity" onclick="closeUnitModal()"></div>
+    <div class="relative bg-white dark:bg-slate-900 rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-slate-200 dark:border-slate-800 card-shadow z-10 animate-fade-in flex flex-col">
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-vimaru-950 via-vimaru-900 to-indigo-950 p-5 text-white rounded-t-3xl relative overflow-hidden flex-shrink-0">
+        <div class="absolute top-4 right-4 flex items-center gap-2 z-20">
+          <button onclick="closeUnitModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-rose-500 text-white flex items-center justify-center text-sm transition border border-white/20" title="Đóng cửa sổ">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="flex items-center gap-4 relative z-10 pr-12">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 text-white flex items-center justify-center font-black text-2xl shadow-lg border-2 border-white/30 flex-shrink-0" id="mUnitIcon">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-cyan-400/20 text-cyan-200 border border-cyan-300/30" id="mUnitCode">Mã: ---</span>
+              <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full" id="mUnitBadge">Xếp loại</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-white mt-1 tracking-tight" id="mUnitName">Tên Khoa / Viện</h3>
+            <div class="text-xs text-slate-300 mt-0.5" id="mUnitRankOverall">Hạng tổng thể: #-- toàn trường</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div class="p-5 space-y-5 flex-1 text-xs">
+        <!-- 4 Key Figures -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div class="text-slate-500 dark:text-slate-400 font-medium">Quy mô CBGV</div>
+            <div class="text-lg font-black text-slate-900 dark:text-slate-100 mt-0.5 tabular-nums" id="mUnitStaff">0</div>
+            <div class="text-[10px] text-slate-400">cán bộ cơ hữu</div>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div class="text-slate-500 dark:text-slate-400 font-medium">Tổng Công Trình</div>
+            <div class="text-lg font-black text-emerald-600 dark:text-emerald-400 mt-0.5 tabular-nums" id="mUnitWorks">0</div>
+            <div class="text-[10px] text-emerald-600 dark:text-emerald-400" id="mUnitWorksRate">0.0 CT/người</div>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div class="text-slate-500 dark:text-slate-400 font-medium">Tổng Giờ NCKH</div>
+            <div class="text-lg font-black text-blue-600 dark:text-cyan-400 mt-0.5 tabular-nums" id="mUnitHours">0 h</div>
+            <div class="text-[10px] text-blue-600 dark:text-cyan-400" id="mUnitHoursRate">0.0 h/người</div>
+          </div>
+          <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div class="text-slate-500 dark:text-slate-400 font-medium">Điểm TB Chuẩn Hóa</div>
+            <div class="text-lg font-black text-amber-600 dark:text-amber-400 mt-0.5 tabular-nums" id="mUnitAvgScore">0%</div>
+            <div class="text-[10px] text-slate-500" id="mUnitRankPair">Rank CT: #-- | Giờ: #--</div>
+          </div>
+        </div>
+
+        <!-- Breakdown Hours -->
+        <div class="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between">
+            <span><i class="fa-solid fa-chart-pie mr-1 text-cyan-500"></i>Cơ Cấu Khối Lượng Giờ NCKH Quy Đổi</span>
+            <span class="text-[11px] font-normal text-slate-500">Năm học 2025 - 2026</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-center" id="mHoursBreakdownGrid">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- So sánh với mức chuẩn -->
+        <div class="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2.5">
+          <div class="font-bold text-slate-800 dark:text-slate-200">
+            <i class="fa-solid fa-scale-balanced mr-1 text-amber-500"></i>So Sánh Chi Tiết Với Ngưỡng Chuẩn Toàn Trường:
+          </div>
+          <div class="space-y-2">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span>Tiêu chí 1: Công trình quy đổi / CBGV</span>
+                <strong id="mBar1Label">0.0 / 1.69 CT (0%)</strong>
+              </div>
+              <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                <div id="mBar1Progress" class="h-full bg-emerald-500 rounded-full" style="width: 50%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span>Tiêu chí 2: Tổng giờ quy đổi / CBGV</span>
+                <strong id="mBar2Label">0.0 / 1,206.51 h (0%)</strong>
+              </div>
+              <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                <div id="mBar2Progress" class="h-full bg-cyan-500 rounded-full" style="width: 50%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-slate-100 dark:bg-slate-850 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+        <button onclick="closeUnitModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 font-bold rounded-xl text-xs transition">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC (PERFECT SYNTAX, ZERO ERRORS) -->
+  <script>
+    const BENCHMARK_CT = 1035 / 614; // ~1.685667
+    const BENCHMARK_GIO = 740794.09 / 614; // ~1206.505
+
+    // Raw 15 units data
+    const rawUnitsData = [{"id": 1, "don_vi": "Khoa Công trình", "ma_don_vi": "KCT", "so_gv": 44, "so_ct": 124, "tong_gio": 82806.16, "detai_h": 16933.3, "baibao_h": 43566.65, "hoithao_h": 7556.2, "giaotrinh_h": 8100.01, "hdsv_h": 5750.0, "tc_sc_h": 900.0, "icon": "fa-helmet-safety", "color": "emerald", "ct_per_gv": 2.82, "gio_per_gv": 1881.96, "norm_ct_pct": 167.3, "norm_gio_pct": 156.0, "avg_score": 161.7, "rank_ct": 1, "rank_gio": 1, "avg_rank": 1.0, "danh_gia_code": "excellent", "danh_gia_text": "Xuất sắc (Vượt cả 2 chuẩn)", "badge_class": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700", "rank_overall": 1}, {"id": 2, "don_vi": "Khoa Kinh tế", "ma_don_vi": "KKT", "so_gv": 74, "so_ct": 185, "tong_gio": 130814.78, "detai_h": 23354.34, "baibao_h": 59128.8, "hoithao_h": 20631.66, "giaotrinh_h": 10333.32, "hdsv_h": 17366.66, "tc_sc_h": 0.0, "icon": "fa-chart-line", "color": "blue", "ct_per_gv": 2.5, "gio_per_gv": 1767.77, "norm_ct_pct": 148.3, "norm_gio_pct": 146.5, "avg_score": 147.4, "rank_ct": 2, "rank_gio": 2, "avg_rank": 2.0, "danh_gia_code": "excellent", "danh_gia_text": "Xuất sắc (Vượt cả 2 chuẩn)", "badge_class": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700", "rank_overall": 2}, {"id": 3, "don_vi": "Khoa Điện - Điện tử", "ma_don_vi": "DDT", "so_gv": 46, "so_ct": 112, "tong_gio": 66432.85, "detai_h": 14581.48, "baibao_h": 34649.08, "hoithao_h": 10018.94, "giaotrinh_h": 4800.01, "hdsv_h": 2383.34, "tc_sc_h": 0.0, "icon": "fa-bolt", "color": "indigo", "ct_per_gv": 2.43, "gio_per_gv": 1444.19, "norm_ct_pct": 144.2, "norm_gio_pct": 119.7, "avg_score": 131.9, "rank_ct": 3, "rank_gio": 3, "avg_rank": 3.0, "danh_gia_code": "excellent", "danh_gia_text": "Xuất sắc (Vượt cả 2 chuẩn)", "badge_class": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700", "rank_overall": 3}, {"id": 4, "don_vi": "Khoa Công nghệ thông tin", "ma_don_vi": "CNTT", "so_gv": 27, "so_ct": 52, "tong_gio": 36838.11, "detai_h": 7621.04, "baibao_h": 12958.73, "hoithao_h": 3008.33, "giaotrinh_h": 1700.0, "hdsv_h": 11550.01, "tc_sc_h": 0.0, "icon": "fa-laptop-code", "color": "cyan", "ct_per_gv": 1.93, "gio_per_gv": 1364.37, "norm_ct_pct": 114.5, "norm_gio_pct": 113.1, "avg_score": 113.8, "rank_ct": 4, "rank_gio": 4, "avg_rank": 4.0, "danh_gia_code": "excellent", "danh_gia_text": "Xuất sắc (Vượt cả 2 chuẩn)", "badge_class": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700", "rank_overall": 4}, {"id": 5, "don_vi": "Khoa Quản trị - Tài chính", "ma_don_vi": "QTC", "so_gv": 55, "so_ct": 106, "tong_gio": 70793.65, "detai_h": 11777.17, "baibao_h": 28968.86, "hoithao_h": 9947.6, "giaotrinh_h": 10433.35, "hdsv_h": 9666.67, "tc_sc_h": 0.0, "icon": "fa-coins", "color": "amber", "ct_per_gv": 1.93, "gio_per_gv": 1287.16, "norm_ct_pct": 114.5, "norm_gio_pct": 106.7, "avg_score": 110.6, "rank_ct": 5, "rank_gio": 6, "avg_rank": 5.5, "danh_gia_code": "excellent", "danh_gia_text": "Xuất sắc (Vượt cả 2 chuẩn)", "badge_class": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700", "rank_overall": 5}, {"id": 6, "don_vi": "Viện Môi trường", "ma_don_vi": "VMT", "so_gv": 27, "so_ct": 48, "tong_gio": 36011.11, "detai_h": 8599.99, "baibao_h": 17219.42, "hoithao_h": 4425.01, "giaotrinh_h": 3600.03, "hdsv_h": 2166.66, "tc_sc_h": 0.0, "icon": "fa-leaf", "color": "teal", "ct_per_gv": 1.78, "gio_per_gv": 1333.74, "norm_ct_pct": 105.6, "norm_gio_pct": 110.5, "avg_score": 108.0, "rank_ct": 6, "rank_gio": 5, "avg_rank": 5.5, "danh_gia_code": "excellent", "danh_gia_text": "Xuất sắc (Vượt cả 2 chuẩn)", "badge_class": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700", "rank_overall": 6}, {"id": 7, "don_vi": "Khoa Hàng hải", "ma_don_vi": "KHH", "so_gv": 77, "so_ct": 132, "tong_gio": 82424.91, "detai_h": 14933.2, "baibao_h": 40709.8, "hoithao_h": 19815.24, "giaotrinh_h": 4666.68, "hdsv_h": 2299.99, "tc_sc_h": 0.0, "icon": "fa-anchor", "color": "sky", "ct_per_gv": 1.71, "gio_per_gv": 1070.45, "norm_ct_pct": 101.4, "norm_gio_pct": 88.7, "avg_score": 95.1, "rank_ct": 7, "rank_gio": 8, "avg_rank": 7.5, "danh_gia_code": "ct_pass", "danh_gia_text": "Đạt chuẩn CT (Vượt chuẩn 1)", "badge_class": "bg-cyan-100 text-cyan-800 dark:bg-cyan-950/80 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-700", "rank_overall": 7}, {"id": 8, "don_vi": "Khoa Lý luận chính trị", "ma_don_vi": "LLCT", "so_gv": 27, "so_ct": 44, "tong_gio": 24859.98, "detai_h": 3199.99, "baibao_h": 14880.0, "hoithao_h": 6779.99, "giaotrinh_h": 0.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-book-open", "color": "red", "ct_per_gv": 1.63, "gio_per_gv": 920.74, "norm_ct_pct": 96.7, "norm_gio_pct": 76.3, "avg_score": 86.5, "rank_ct": 8, "rank_gio": 12, "avg_rank": 10.0, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 8}, {"id": 9, "don_vi": "Khoa Đóng tàu", "ma_don_vi": "KDT", "so_gv": 19, "so_ct": 28, "tong_gio": 18935.16, "detai_h": 2399.99, "baibao_h": 6631.85, "hoithao_h": 6308.88, "giaotrinh_h": 1277.78, "hdsv_h": 1116.66, "tc_sc_h": 1200.0, "icon": "fa-ship", "color": "blue", "ct_per_gv": 1.47, "gio_per_gv": 996.59, "norm_ct_pct": 87.2, "norm_gio_pct": 82.6, "avg_score": 84.9, "rank_ct": 9, "rank_gio": 9, "avg_rank": 9.0, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 9}, {"id": 10, "don_vi": "Viện Cơ khí", "ma_don_vi": "VCK", "so_gv": 42, "so_ct": 50, "tong_gio": 47189.93, "detai_h": 15699.97, "baibao_h": 21551.07, "hoithao_h": 3688.89, "giaotrinh_h": 1600.0, "hdsv_h": 4650.0, "tc_sc_h": 0.0, "icon": "fa-gears", "color": "slate", "ct_per_gv": 1.19, "gio_per_gv": 1123.57, "norm_ct_pct": 70.6, "norm_gio_pct": 93.1, "avg_score": 81.8, "rank_ct": 11, "rank_gio": 7, "avg_rank": 9.0, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 10}, {"id": 11, "don_vi": "Khoa Máy tàu biển", "ma_don_vi": "MTB", "so_gv": 51, "so_ct": 62, "tong_gio": 50159.69, "detai_h": 10399.93, "baibao_h": 26669.75, "hoithao_h": 7440.01, "giaotrinh_h": 2800.0, "hdsv_h": 2850.0, "tc_sc_h": 0.0, "icon": "fa-cogs", "color": "orange", "ct_per_gv": 1.22, "gio_per_gv": 983.52, "norm_ct_pct": 72.4, "norm_gio_pct": 81.5, "avg_score": 77.0, "rank_ct": 10, "rank_gio": 10, "avg_rank": 10.0, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 11}, {"id": 12, "don_vi": "Khoa Cơ sở - Cơ bản", "ma_don_vi": "CSCB", "so_gv": 46, "so_ct": 48, "tong_gio": 42377.76, "detai_h": 4700.0, "baibao_h": 19827.76, "hoithao_h": 10050.0, "giaotrinh_h": 400.0, "hdsv_h": 7400.0, "tc_sc_h": 0.0, "icon": "fa-atom", "color": "purple", "ct_per_gv": 1.04, "gio_per_gv": 921.26, "norm_ct_pct": 61.7, "norm_gio_pct": 76.4, "avg_score": 69.1, "rank_ct": 12, "rank_gio": 11, "avg_rank": 11.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 12}, {"id": 13, "don_vi": "TT. Giáo dục thể chất HH", "ma_don_vi": "TTGDTC", "so_gv": 18, "so_ct": 16, "tong_gio": 15149.99, "detai_h": 800.0, "baibao_h": 6899.99, "hoithao_h": 1650.0, "giaotrinh_h": 5800.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-person-running", "color": "lime", "ct_per_gv": 0.89, "gio_per_gv": 841.67, "norm_ct_pct": 52.8, "norm_gio_pct": 69.8, "avg_score": 61.3, "rank_ct": 13, "rank_gio": 13, "avg_rank": 13.0, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 13}, {"id": 14, "don_vi": "Trung tâm GDQP AN", "ma_don_vi": "TTGDQP", "so_gv": 11, "so_ct": 7, "tong_gio": 5950.0, "detai_h": 0.0, "baibao_h": 2400.0, "hoithao_h": 3550.0, "giaotrinh_h": 0.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-shield-halved", "color": "green", "ct_per_gv": 0.64, "gio_per_gv": 540.91, "norm_ct_pct": 38.0, "norm_gio_pct": 44.8, "avg_score": 41.4, "rank_ct": 14, "rank_gio": 15, "avg_rank": 14.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 14}, {"id": 15, "don_vi": "Khoa Ngoại ngữ", "ma_don_vi": "KNN", "so_gv": 50, "so_ct": 21, "tong_gio": 30050.01, "detai_h": 4000.0, "baibao_h": 10900.0, "hoithao_h": 7050.0, "giaotrinh_h": 3600.0, "hdsv_h": 4500.01, "tc_sc_h": 0.0, "icon": "fa-language", "color": "pink", "ct_per_gv": 0.42, "gio_per_gv": 601.0, "norm_ct_pct": 24.9, "norm_gio_pct": 49.8, "avg_score": 37.3, "rank_ct": 15, "rank_gio": 14, "avg_rank": 14.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu (Dưới mức TB)", "badge_class": "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700", "rank_overall": 15}];
+
+    let currentFilterStatus = 'all';
+    let searchQuery = '';
+    let currentSort = 'avg_score_desc';
+
+    // Formatters
+    function formatNumber(val, decimals = 2) {
+      if (val === undefined || val === null || isNaN(val)) return '0,00';
+      return Number(val).toLocaleString('vi-VN', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+    }
+
+    // Render Table dynamically when sorting or filtering
+    function renderTable() {
+      const tbody = document.getElementById('tbodyDoiSanh');
+      if (!tbody) return;
+
+      // Filter
+      let list = rawUnitsData.filter(function(u) {
+        // Status filter
+        if (currentFilterStatus === 'excellent' && u.danh_gia_code !== 'excellent') return false;
+        if (currentFilterStatus === 'ct_pass' && u.ct_per_gv < BENCHMARK_CT) return false;
+        if (currentFilterStatus === 'gio_pass' && u.gio_per_gv < BENCHMARK_GIO) return false;
+        if (currentFilterStatus === 'improve' && u.danh_gia_code !== 'improve') return false;
+
+        // Search filter
+        if (searchQuery.trim() !== '') {
+          const q = searchQuery.toLowerCase().trim();
+          const matchName = u.don_vi.toLowerCase().includes(q);
+          const matchCode = u.ma_don_vi.toLowerCase().includes(q);
+          if (!matchName && !matchCode) return false;
+        }
+        return true;
+      });
+
+      // Sort
+      applySorting(list, currentSort);
+
+      tbody.innerHTML = '';
+      if (list.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="13" class="py-6 text-center text-slate-400 font-medium">Không tìm thấy đơn vị nào phù hợp với bộ lọc hiện tại.</td></tr>';
+        return;
+      }
+
+      list.forEach(function(u, index) {
+        const tr = document.createElement('tr');
+        tr.className = "bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer";
+        tr.onclick = function() { openUnitModal(u.id); };
+
+        const ctExceed = u.ct_per_gv >= BENCHMARK_CT;
+        const ctColorClass = ctExceed ? "text-emerald-600 dark:text-emerald-400 font-black" : "text-slate-700 dark:text-slate-300 font-medium";
+
+        const gioExceed = u.gio_per_gv >= BENCHMARK_GIO;
+        const gioColorClass = gioExceed ? "text-blue-600 dark:text-cyan-300 font-black" : "text-slate-700 dark:text-slate-300 font-medium";
+
+        let scoreBg = "bg-amber-50/50 dark:bg-amber-950/20 text-amber-900 dark:text-amber-200 font-bold";
+        if (u.avg_score >= 120) scoreBg = "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-200 font-black";
+
+        tr.innerHTML = `
+          <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums">${index + 1}</td>
+          <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                <i class="fa-solid ${u.icon || 'fa-building-columns'}"></i>
+              </span>
+              <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">${u.don_vi}</span>
+              <span class="text-[10px] text-slate-400 font-mono">(${u.ma_don_vi})</span>
+            </div>
+          </td>
+          <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums">${u.so_gv}</td>
+          <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums">${u.so_ct}</td>
+          <td class="py-3.5 px-3 text-right tabular-nums ${ctColorClass}">
+            ${formatNumber(u.ct_per_gv, 2)}
+            ${ctExceed ? '<i class="fa-solid fa-caret-up text-emerald-500 text-xs ml-0.5" title="Vượt chuẩn CT"></i>' : ''}
+          </td>
+          <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold">#${u.rank_ct}</td>
+          <td class="py-3.5 px-3 text-right font-bold text-slate-800 dark:text-slate-200 tabular-nums">${formatNumber(u.tong_gio, 2)}</td>
+          <td class="py-3.5 px-3 text-right tabular-nums ${gioColorClass}">
+            ${formatNumber(u.gio_per_gv, 2)}
+            ${gioExceed ? '<i class="fa-solid fa-caret-up text-blue-500 text-xs ml-0.5" title="Vượt chuẩn Giờ"></i>' : ''}
+          </td>
+          <td class="py-3.5 px-2 text-center tabular-nums text-slate-600 dark:text-slate-400 font-semibold">#${u.rank_gio}</td>
+          <td class="py-3.5 px-3 text-right tabular-nums font-black border-l border-amber-200/80 dark:border-amber-800/60 ${scoreBg}">
+            ${formatNumber(u.avg_score, 1)}%
+          </td>
+          <td class="py-3.5 px-2 text-center tabular-nums font-bold text-slate-700 dark:text-slate-300">
+            ${formatNumber(u.avg_rank, 1)}
+          </td>
+          <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+            <span class="inline-flex items-center justify-center px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap ${u.badge_class}">
+              ${u.danh_gia_text}
+            </span>
+          </td>
+          <td class="py-3.5 px-2 text-center no-print" onclick="event.stopPropagation()">
+            <button onclick="openUnitModal(${u.id})" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+              <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Apply Sorting logic matching user requirements
+    function applySorting(arr, sortMode) {
+      arr.sort(function(a, b) {
+        switch (sortMode) {
+          case 'avg_score_desc':
+            return b.avg_score - a.avg_score;
+          case 'avg_score_asc':
+            return a.avg_score - b.avg_score;
+          case 'avg_rank_asc':
+            return a.avg_rank - b.avg_rank;
+          case 'avg_rank_desc':
+            return b.avg_rank - a.avg_rank;
+          case 'ct_per_gv_desc':
+            return b.ct_per_gv - a.ct_per_gv;
+          case 'ct_per_gv_asc':
+            return a.ct_per_gv - b.ct_per_gv;
+          case 'gio_per_gv_desc':
+            return b.gio_per_gv - a.gio_per_gv;
+          case 'gio_per_gv_asc':
+            return a.gio_per_gv - b.gio_per_gv;
+          case 'tong_gio_desc':
+            return b.tong_gio - a.tong_gio;
+          case 'tong_gio_asc':
+            return a.tong_gio - b.tong_gio;
+          case 'so_ct_desc':
+            return b.so_ct - a.so_ct;
+          case 'so_ct_asc':
+            return a.so_ct - b.so_ct;
+          case 'so_gv_desc':
+            return b.so_gv - a.so_gv;
+          case 'so_gv_asc':
+            return a.so_gv - b.so_gv;
+          case 'rank_ct_asc':
+            return a.rank_ct - b.rank_ct;
+          case 'rank_gio_asc':
+            return a.rank_gio - b.rank_gio;
+          case 'don_vi_asc':
+            return a.don_vi.localeCompare(b.don_vi, 'vi');
+          case 'don_vi_desc':
+            return b.don_vi.localeCompare(a.don_vi, 'vi');
+          default:
+            return b.avg_score - a.avg_score;
+        }
+      });
+    }
+
+    // Sort Dropdown Change Handler
+    function onSortDoiSanhChange() {
+      const sel = document.getElementById('selectSortDoiSanh');
+      if (!sel) return;
+      currentSort = sel.value;
+      renderTable();
+    }
+
+    // Column Click Sort Handler
+    function toggleSortColumn(col) {
+      if (col === 'rank' || col === 'avg_score') {
+        currentSort = currentSort === 'avg_score_desc' ? 'avg_score_asc' : 'avg_score_desc';
+      } else if (col === 'don_vi') {
+        currentSort = currentSort === 'don_vi_asc' ? 'don_vi_desc' : 'don_vi_asc';
+      } else if (col === 'so_gv') {
+        currentSort = currentSort === 'so_gv_desc' ? 'so_gv_asc' : 'so_gv_desc';
+      } else if (col === 'so_ct') {
+        currentSort = currentSort === 'so_ct_desc' ? 'so_ct_asc' : 'so_ct_desc';
+      } else if (col === 'ct_per_gv') {
+        currentSort = currentSort === 'ct_per_gv_desc' ? 'ct_per_gv_asc' : 'ct_per_gv_desc';
+      } else if (col === 'rank_ct') {
+        currentSort = currentSort === 'rank_ct_asc' ? 'rank_ct_desc' : 'rank_ct_asc';
+      } else if (col === 'tong_gio') {
+        currentSort = currentSort === 'tong_gio_desc' ? 'tong_gio_asc' : 'tong_gio_desc';
+      } else if (col === 'gio_per_gv') {
+        currentSort = currentSort === 'gio_per_gv_desc' ? 'gio_per_gv_asc' : 'gio_per_gv_desc';
+      } else if (col === 'rank_gio') {
+        currentSort = currentSort === 'rank_gio_asc' ? 'rank_gio_desc' : 'rank_gio_asc';
+      } else if (col === 'avg_rank') {
+        currentSort = currentSort === 'avg_rank_asc' ? 'avg_rank_desc' : 'avg_rank_asc';
+      }
+      renderTable();
+    }
+
+    // Filter pills handler
+    function setFilterStatus(status) {
+      currentFilterStatus = status;
+      ['all', 'excellent', 'ct_pass', 'gio_pass', 'improve'].forEach(function(s) {
+        const btn = document.getElementById('pill_' + s);
+        if (btn) {
+          if (s === status) {
+            btn.className = "px-2.5 py-1 rounded-lg font-bold bg-vimaru-700 text-white shadow-xs transition";
+          } else {
+            btn.className = "px-2.5 py-1 rounded-lg font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition";
+          }
+        }
+      });
+      renderTable();
+    }
+
+    // Search bar handler
+    function onSearchChange() {
+      const inp = document.getElementById('searchInput');
+      if (inp) searchQuery = inp.value;
+      renderTable();
+    }
+
+    // Detail Modal Functions
+    function openUnitModal(unitId) {
+      const u = rawUnitsData.find(function(x) { return x.id === unitId; });
+      if (!u) return;
+
+      document.getElementById('mUnitName').innerText = u.don_vi;
+      document.getElementById('mUnitCode').innerText = "Mã đơn vị: " + u.ma_don_vi;
+      document.getElementById('mUnitRankOverall').innerText = "Xếp hạng tổng thể: #" + u.rank_overall + " / 15 Khoa/Viện (Điểm chuẩn hóa: " + formatNumber(u.avg_score, 1) + "%)";
+      
+      const badge = document.getElementById('mUnitBadge');
+      badge.innerText = u.danh_gia_text;
+      badge.className = "text-xs font-extrabold px-2.5 py-0.5 rounded-full " + u.badge_class;
+
+      document.getElementById('mUnitStaff').innerText = u.so_gv + " người";
+      document.getElementById('mUnitWorks').innerText = u.so_ct + " CT";
+      document.getElementById('mUnitWorksRate').innerText = formatNumber(u.ct_per_gv, 2) + " CT/người (Hạng #" + u.rank_ct + ")";
+      document.getElementById('mUnitHours').innerText = formatNumber(u.tong_gio, 2) + " h";
+      document.getElementById('mUnitHoursRate').innerText = formatNumber(u.gio_per_gv, 2) + " h/người (Hạng #" + u.rank_gio + ")";
+      document.getElementById('mUnitAvgScore').innerText = formatNumber(u.avg_score, 1) + "%";
+      document.getElementById('mUnitRankPair').innerText = "Rank TB: " + formatNumber(u.avg_rank, 1) + " (CT: #" + u.rank_ct + " | Giờ: #" + u.rank_gio + ")";
+
+      // Progress bars
+      const p1 = Math.min(200, (u.ct_per_gv / BENCHMARK_CT) * 100);
+      document.getElementById('mBar1Progress').style.width = p1 + "%";
+      document.getElementById('mBar1Progress').className = "h-full rounded-full " + (u.ct_per_gv >= BENCHMARK_CT ? "bg-emerald-500" : "bg-amber-500");
+      document.getElementById('mBar1Label').innerText = formatNumber(u.ct_per_gv, 2) + " / 1,69 CT (" + formatNumber(u.norm_ct_pct, 1) + "%)";
+
+      const p2 = Math.min(200, (u.gio_per_gv / BENCHMARK_GIO) * 100);
+      document.getElementById('mBar2Progress').style.width = p2 + "%";
+      document.getElementById('mBar2Progress').className = "h-full rounded-full " + (u.gio_per_gv >= BENCHMARK_GIO ? "bg-cyan-500" : "bg-amber-500");
+      document.getElementById('mBar2Label').innerText = formatNumber(u.gio_per_gv, 2) + " / 1.206,51 h (" + formatNumber(u.norm_gio_pct, 1) + "%)";
+
+      // Hours breakdown
+      const bGrid = document.getElementById('mHoursBreakdownGrid');
+      bGrid.innerHTML = `
+        <div class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div class="text-[11px] text-slate-400">Đề tài KHCN</div>
+          <div class="text-sm font-black text-blue-600 dark:text-cyan-400 mt-0.5 tabular-nums">${formatNumber(u.detai_h, 2)} h</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div class="text-[11px] text-slate-400">Bài báo tạp chí</div>
+          <div class="text-sm font-black text-emerald-600 dark:text-emerald-400 mt-0.5 tabular-nums">${formatNumber(u.baibao_h, 2)} h</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div class="text-[11px] text-slate-400">Hội thảo, HN</div>
+          <div class="text-sm font-black text-indigo-600 dark:text-indigo-400 mt-0.5 tabular-nums">${formatNumber(u.hoithao_h, 2)} h</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div class="text-[11px] text-slate-400">Giáo trình, sách</div>
+          <div class="text-sm font-black text-purple-600 dark:text-purple-400 mt-0.5 tabular-nums">${formatNumber(u.giaotrinh_h, 2)} h</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div class="text-[11px] text-slate-400">Hướng dẫn SV NCKH</div>
+          <div class="text-sm font-black text-amber-600 dark:text-amber-400 mt-0.5 tabular-nums">${formatNumber(u.hdsv_h, 2)} h</div>
+        </div>
+        <div class="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div class="text-[11px] text-slate-400">Tiêu chuẩn / Sáng chế</div>
+          <div class="text-sm font-black text-slate-700 dark:text-slate-300 mt-0.5 tabular-nums">${formatNumber(u.tc_sc_h, 2)} h</div>
+        </div>
+      `;
+
+      document.getElementById('unitDetailModal').classList.remove('hidden');
+    }
+
+    function closeUnitModal() {
+      document.getElementById('unitDetailModal').classList.add('hidden');
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeUI(isDark);
+      initCharts();
+    }
+
+    function updateThemeUI(isDark) {
+      const icon = document.getElementById('themeToggleIcon');
+      const text = document.getElementById('themeToggleText');
+      if (!icon || !text) return;
+      if (isDark) {
+        icon.className = 'fa-solid fa-sun text-yellow-300';
+        text.innerText = 'Giao diện Sáng';
+      } else {
+        icon.className = 'fa-solid fa-moon text-yellow-300';
+        text.innerText = 'Giao diện Tối';
+      }
+    }
+
+    // Chart instances
+    let chart1Instance = null;
+    let chart2Instance = null;
+    let chartCorrInstance = null;
+
+    function initCharts() {
+      if (typeof Chart === 'undefined') {
+        console.warn('Chart.js not loaded yet');
+        return;
+      }
+      const isDark = document.documentElement.classList.contains('dark');
+      const textColor = isDark ? '#cbd5e1' : '#334155';
+      const gridColor = isDark ? '#334155' : '#e2e8f0';
+
+      // --- Chart 1: Tiêu chí 1 (CT / CBGV) sorted descending ---
+      const sortedByCT = [...rawUnitsData].sort(function(a, b) { return b.ct_per_gv - a.ct_per_gv; });
+      const labels1 = sortedByCT.map(function(u) { return u.don_vi; });
+      const data1 = sortedByCT.map(function(u) { return u.ct_per_gv; });
+      const colors1 = sortedByCT.map(function(u) { return u.ct_per_gv >= BENCHMARK_CT ? '#10b981' : '#cbd5e1'; });
+
+      const ctx1 = document.getElementById('chartDoiSanhCongTrinh');
+      if (ctx1) {
+        if (chart1Instance) chart1Instance.destroy();
+        chart1Instance = new Chart(ctx1, {
+          type: 'bar',
+          data: {
+            labels: labels1,
+            datasets: [
+              {
+                label: 'Tỷ số CT / Cán bộ',
+                data: data1,
+                backgroundColor: colors1,
+                borderRadius: 6,
+                borderSkipped: false
+              },
+              {
+                type: 'line',
+                label: 'Chuẩn toàn trường (1,69 CT/người)',
+                data: Array(labels1.length).fill(BENCHMARK_CT),
+                borderColor: '#ef4444',
+                borderWidth: 2,
+                borderDash: [6, 4],
+                pointRadius: 0,
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+              legend: {
+                labels: { color: textColor, font: { family: 'Be Vietnam Pro', size: 11 } }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(c) {
+                    if (c.dataset.type === 'line') return 'Ngưỡng Chuẩn: 1,69 CT/người';
+                    return 'Tỷ số: ' + formatNumber(c.raw, 2) + ' CT/người (' + (c.raw >= BENCHMARK_CT ? 'Đạt' : 'Dưới') + ' chuẩn)';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: gridColor },
+                ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10 } },
+                title: { display: true, text: 'Công trình / CBGV (CT/người)', color: textColor, font: { size: 11, weight: 'bold' } }
+              },
+              y: {
+                grid: { display: false },
+                ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10, weight: '600' } }
+              }
+            }
+          }
+        });
+      }
+
+      // --- Chart 2: Tiêu chí 2 (Giờ / CBGV) sorted descending ---
+      const sortedByGio = [...rawUnitsData].sort(function(a, b) { return b.gio_per_gv - a.gio_per_gv; });
+      const labels2 = sortedByGio.map(function(u) { return u.don_vi; });
+      const data2 = sortedByGio.map(function(u) { return u.gio_per_gv; });
+      const colors2 = sortedByGio.map(function(u) { return u.gio_per_gv >= BENCHMARK_GIO ? '#0ea5e9' : '#cbd5e1'; });
+
+      const ctx2 = document.getElementById('chartDoiSanhGio');
+      if (ctx2) {
+        if (chart2Instance) chart2Instance.destroy();
+        chart2Instance = new Chart(ctx2, {
+          type: 'bar',
+          data: {
+            labels: labels2,
+            datasets: [
+              {
+                label: 'Tỷ số Giờ / Cán bộ (h)',
+                data: data2,
+                backgroundColor: colors2,
+                borderRadius: 6,
+                borderSkipped: false
+              },
+              {
+                type: 'line',
+                label: 'Chuẩn toàn trường (1.206,51 h/người)',
+                data: Array(labels2.length).fill(BENCHMARK_GIO),
+                borderColor: '#f59e0b',
+                borderWidth: 2,
+                borderDash: [6, 4],
+                pointRadius: 0,
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+              legend: {
+                labels: { color: textColor, font: { family: 'Be Vietnam Pro', size: 11 } }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(c) {
+                    if (c.dataset.type === 'line') return 'Ngưỡng Chuẩn: 1.206,51 h/người';
+                    return 'Tỷ số: ' + formatNumber(c.raw, 2) + ' h/người (' + (c.raw >= BENCHMARK_GIO ? 'Đạt' : 'Dưới') + ' chuẩn)';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: gridColor },
+                ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10 } },
+                title: { display: true, text: 'Giờ NCKH quy đổi / CBGV (h/người)', color: textColor, font: { size: 11, weight: 'bold' } }
+              },
+              y: {
+                grid: { display: false },
+                ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10, weight: '600' } }
+              }
+            }
+          }
+        });
+      }
+
+      // --- Chart 3: Correlation Scatter / Bubble Chart (Staff vs Normalized Score) ---
+      const ctx3 = document.getElementById('chartCorrelation');
+      if (ctx3) {
+        if (chartCorrInstance) chartCorrInstance.destroy();
+
+        const bubbleData = rawUnitsData.map(function(u) {
+          return {
+            x: u.so_gv,
+            y: u.avg_score,
+            r: Math.max(6, Math.min(24, Math.sqrt(u.tong_gio) / 22)),
+            unit: u
+          };
+        });
+
+        chartCorrInstance = new Chart(ctx3, {
+          type: 'bubble',
+          data: {
+            datasets: [{
+              label: '15 Khoa / Viện',
+              data: bubbleData,
+              backgroundColor: bubbleData.map(function(d) {
+                if (d.unit.danh_gia_code === 'excellent') return 'rgba(16, 185, 129, 0.7)';
+                if (d.unit.danh_gia_code === 'ct_pass') return 'rgba(6, 182, 212, 0.7)';
+                return 'rgba(245, 158, 11, 0.7)';
+              }),
+              borderColor: bubbleData.map(function(d) {
+                if (d.unit.danh_gia_code === 'excellent') return '#059669';
+                if (d.unit.danh_gia_code === 'ct_pass') return '#0891b2';
+                return '#d97706';
+              }),
+              borderWidth: 1.5
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function(c) {
+                    const u = c.raw.unit;
+                    return [
+                      u.don_vi + ' (' + u.ma_don_vi + ')',
+                      '• Quy mô CBGV: ' + u.so_gv + ' người',
+                      '• Điểm chuẩn hóa: ' + formatNumber(u.avg_score, 1) + '%',
+                      '• Tổng giờ: ' + formatNumber(u.tong_gio, 2) + ' h',
+                      '• Đánh giá: ' + u.danh_gia_text
+                    ];
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: gridColor },
+                ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10 } },
+                title: { display: true, text: 'Quy Mô Đội Ngũ (Số Cán Bộ - Giảng Viên)', color: textColor, font: { size: 11, weight: 'bold' } }
+              },
+              y: {
+                grid: { color: gridColor },
+                ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10 } },
+                title: { display: true, text: 'Điểm TB Chuẩn Hóa 2 Tiêu Chí (%) (100% = Mức TB chuẩn)', color: textColor, font: { size: 11, weight: 'bold' } }
+              }
+            }
+          }
+        });
+      }
+    }
+
+    // Document Ready
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        updateThemeUI(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        updateThemeUI(false);
+      }
+
+      initCharts();
+    });
+  </script>
+</body>
+</html>
