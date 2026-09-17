@@ -88,6 +88,218 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+
+    /* ===== VMU HEADER - cân đối, ổn định trên desktop/tablet/mobile ===== */
+    .vmu-header {
+      width: 100%;
+    }
+
+    .vmu-header-inner {
+      width: 100%;
+      max-width: 1280px;
+      min-height: 76px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-sizing: border-box;
+    }
+
+    .vmu-header-brand {
+      min-width: 0;
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .vmu-header-logo {
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      padding: 4px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.20);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,.08);
+    }
+
+    .vmu-header-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .vmu-header-copy {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .vmu-header-org {
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: .045em;
+      color: #cbd5e1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vmu-header-title {
+      margin: 2px 0 1px;
+      font-size: clamp(17px, 1.75vw, 22px);
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: -.025em;
+      color: #fff;
+    }
+
+    .vmu-header-subtitle {
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 500;
+      color: #67e8f9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vmu-header-actions {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 7px;
+    }
+
+    .vmu-header-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      color: #fff;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 1px 2px rgba(0,0,0,.08);
+      transition: background .2s ease, transform .2s ease;
+      cursor: pointer;
+    }
+
+    .vmu-header-btn:hover {
+      background: rgba(255,255,255,.18);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .vmu-header-inner {
+        gap: 12px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .vmu-header-actions {
+        gap: 5px;
+      }
+
+      .vmu-header-btn {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .vmu-header-inner {
+        min-height: 0;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        align-items: flex-start;
+      }
+
+      .vmu-header-brand {
+        gap: 9px;
+      }
+
+      .vmu-header-logo {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+        border-radius: 12px;
+      }
+
+      .vmu-header-org {
+        font-size: 9px;
+      }
+
+      .vmu-header-title {
+        font-size: 16px;
+        line-height: 1.15;
+      }
+
+      .vmu-header-subtitle {
+        font-size: 9px;
+      }
+
+      .vmu-header-actions {
+        align-self: center;
+      }
+
+      .vmu-header-btn span {
+        display: none;
+      }
+
+      .vmu-header-btn {
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .vmu-header-inner {
+        gap: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .vmu-header-brand {
+        gap: 8px;
+      }
+
+      .vmu-header-logo {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+      }
+
+      .vmu-header-org {
+        font-size: 8px;
+      }
+
+      .vmu-header-title {
+        font-size: 14px;
+      }
+
+      .vmu-header-subtitle {
+        font-size: 8px;
+      }
+    }
+
     /* Print / PDF Optimization for A4 Landscape */
     @media print {
       @page {
@@ -175,36 +387,36 @@
 <body class="min-h-screen antialiased flex flex-col custom-scrollbar bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
 
   <!-- TOP APP HEADER -->
-  <header class="bg-gradient-to-r from-vimaru-950 via-vimaru-900 to-vimaru-800 text-white sticky top-0 z-40 shadow-lg border-b border-white/10">
-   <div class="flex items-center gap-3 sm:gap-4 min-w-0 flex-1 w-full">   
-<div class="flex items-center gap-3.5 sm:gap-4 w-full min-w-0">   
-<div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-inner flex-shrink-0 p-1">   
-<img src="Logo_VMU.png" alt="Logo VMU" class="w-full h-full object-contain">   
-</div>  
-          <div class="min-w-0">
-            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-300 leading-tight">
-              TRƯỜNG ĐẠI HỌC HÀNG HẢI VIỆT NAM • PHÒNG KHOA HỌC - CÔNG NGHỆ
-            </div>
-            <h1 class="text-base sm:text-lg lg:text-xl font-black text-white tracking-tight mt-0.5 leading-snug">
-              THỐNG KÊ & ĐỐI SÁNH NĂNG SUẤT NCKH GIỮA CÁC KHOA/ VIỆN
-            </h1>
-            <div class="text-[11px] text-cyan-300 font-medium">
-              Đánh giá tương quan quy mô đội ngũ & kết quả hoạt động nghiên cứu khoa học năm học 2025-2026
-            </div>
-          </div>
+  <header class="vmu-header bg-gradient-to-r from-vimaru-950 via-vimaru-900 to-vimaru-800 text-white sticky top-0 z-40 shadow-lg border-b border-white/10">
+    <div class="vmu-header-inner">
+      <div class="vmu-header-brand">
+        <div class="vmu-header-logo">
+          <img src="Logo_VMU.png" alt="Logo VMU">
         </div>
 
-        <!-- Header Actions -->
-        <div class="flex items-center gap-2 no-print self-end md:self-center">
-          <button id="themeToggleBtn" onclick="toggleTheme()" class="bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-xl text-xs font-bold border border-white/20 shadow-sm transition flex items-center gap-1.5 cursor-pointer" title="Chuyển chế độ Sáng / Tối">
-            <i id="themeToggleIcon" class="fa-solid fa-moon text-yellow-300"></i>
-            <span id="themeToggleText">Giao diện Tối</span>
-          </button>
-          <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold border border-white/20 shadow-sm transition flex items-center gap-1.5" title="In báo cáo A4 Landscape">
-            <i class="fa-solid fa-print text-cyan-300"></i>
-            <span>In Báo Cáo</span>
-          </button>
+        <div class="vmu-header-copy">
+          <div class="vmu-header-org">
+            TRƯỜNG ĐẠI HỌC HÀNG HẢI VIỆT NAM • PHÒNG KHOA HỌC - CÔNG NGHỆ
+          </div>
+          <h1 class="vmu-header-title">
+            THỐNG KÊ & ĐỐI SÁNH NĂNG SUẤT NCKH GIỮA CÁC KHOA/ VIỆN
+          </h1>
+          <div class="vmu-header-subtitle">
+            Đánh giá tương quan quy mô đội ngũ & kết quả hoạt động nghiên cứu khoa học năm học 2025-2026
+          </div>
         </div>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="vmu-header-actions no-print">
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="vmu-header-btn" title="Chuyển chế độ Sáng / Tối">
+          <i id="themeToggleIcon" class="fa-solid fa-moon text-yellow-300"></i>
+          <span id="themeToggleText">Giao diện Tối</span>
+        </button>
+        <button onclick="window.print()" class="vmu-header-btn" title="In báo cáo A4 Landscape">
+          <i class="fa-solid fa-print text-cyan-300"></i>
+          <span>In Báo Cáo</span>
+        </button>
       </div>
     </div>
   </header>
