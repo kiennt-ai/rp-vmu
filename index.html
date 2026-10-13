@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THỐNG KÊ & ĐỐI SÁNH HIỆU SUẤT HOẠT ĐỘNG NCKH GIỮA CÁC KHOA/ VIỆN (2025-2026) - VMU</title>
+  <title>THỐNG KÊ & ĐỐI SÁNH NĂNG SUẤT NCKH GIỮA CÁC KHOA/ VIỆN (2025-2026)-VMU</title>
   <link rel="icon" type="image/png" href="Logo_VMU.png">
 
   <!-- Tailwind CSS CDN -->
@@ -92,103 +92,220 @@
     @media print {
       @page {
         size: A4 landscape;
-        margin: 8mm 10mm 10mm 10mm;
+        margin: 7mm 8mm 7mm 8mm;
       }
+      
+      /* Base resets for high-contrast, clean printing */
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+      
       html, body {
         width: 100% !important;
         background: #ffffff !important;
         color: #0f172a !important;
+        font-family: 'Be Vietnam Pro', 'Inter', system-ui, sans-serif !important;
         font-size: 8pt !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
-      .no-print, #themeToggleBtn, #quickSearchBar, #selectSortDoiSanh, #filterPillsBlock, button, input, select {
+
+      /* Hide web interactive elements */
+      .no-print, nav, #themeToggleBtn, #quickSearchBar, #selectSortDoiSanh, 
+      #filterPillsBlock, button, input, select, .no-print-col, 
+      th:last-child, td:last-child,
+      th i.fa-sort, th i.fa-sort-up, th i.fa-sort-down, th i.fa-arrow-up, th i.fa-arrow-down {
         display: none !important;
       }
+
+      /* Header styling in print mode */
       header {
+        display: block !important;
         position: static !important;
         background: #ffffff !important;
         color: #0f172a !important;
         border-bottom: 2px solid #0f172a !important;
-        padding: 0 0 8px 0 !important;
-        margin-bottom: 10px !important;
+        padding: 0 0 6px 0 !important;
+        margin-bottom: 8px !important;
         break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
       header * {
         color: #0f172a !important;
         text-shadow: none !important;
       }
+      header .no-print, #themeToggleBtn, header button {
+        display: none !important;
+      }
+      header .w-12 {
+        border-color: #cbd5e1 !important;
+        background: #f1f5f9 !important;
+      }
+      header i.fa-scale-balanced {
+        color: #026fc7 !important;
+      }
+
+      main {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+
+      /* KPI Cards layout on Page 1 */
       .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-5 {
         display: flex !important;
         flex-direction: row !important;
-        gap: 8px !important;
-        margin-bottom: 10px !important;
+        gap: 6mm !important;
+        margin-bottom: 4mm !important;
         break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
       .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-5 > div {
         flex: 1 1 20% !important;
-        padding: 6px !important;
-        border: 1px solid #cbd5e1 !important;
-        background: #ffffff !important;
+        padding: 6px 8px !important;
+        border: 1pt solid #cbd5e1 !important;
+        border-radius: 6px !important;
+        background: #f8fafc !important;
       }
+      .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-5 > div .w-12 {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 11px !important;
+        border-radius: 6px !important;
+      }
+
+      /* 2 Comparative Charts on Page 1 */
       .grid.grid-cols-1.lg\:grid-cols-2 {
         display: flex !important;
         flex-direction: row !important;
-        gap: 12px !important;
-        margin-bottom: 12px !important;
+        gap: 6mm !important;
+        margin-bottom: 0 !important;
         break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        page-break-after: always !important;
+        break-after: page !important;
       }
       .grid.grid-cols-1.lg\:grid-cols-2 > div {
         flex: 1 1 50% !important;
-        border: 1px solid #cbd5e1 !important;
+        border: 1pt solid #cbd5e1 !important;
+        border-radius: 8px !important;
         background: #ffffff !important;
-        padding: 8px !important;
+        padding: 6px 10px !important;
       }
       .chart-container-box {
-        height: 190px !important;
-        max-height: 190px !important;
+        height: 195px !important;
+        max-height: 195px !important;
       }
       canvas {
-        max-height: 185px !important;
+        max-height: 190px !important;
+        width: 100% !important;
       }
-      table {
+
+      /* Page 2: Table Section */
+      #tableSectionContainer, .bg-white.dark\:bg-slate-900.rounded-3xl.p-5.border {
+        page-break-before: always !important;
+        break-before: page !important;
+        border: none !important;
+        padding: 0 !important;
+        background: transparent !important;
+      }
+
+      /* Clean 11-column table for A4 Landscape */
+      table#tableDoiSanh {
         width: 100% !important;
         border-collapse: collapse !important;
-        font-size: 7.5pt !important;
+        font-size: 7.8pt !important;
+        line-height: 1.25 !important;
+        background: #ffffff !important;
+        page-break-inside: auto !important;
       }
-      th, td {
-        padding: 3px 5px !important;
-        border: 0.5pt solid #64748b !important;
-      }
-      thead {
+      table#tableDoiSanh thead {
         display: table-header-group !important;
       }
-      tfoot {
+      table#tableDoiSanh thead tr {
+        background-color: #f1f5f9 !important;
+        color: #0f172a !important;
+      }
+      table#tableDoiSanh th {
+        padding: 5px 4px !important;
+        border: 0.75pt solid #475569 !important;
+        font-weight: 800 !important;
+        text-align: center !important;
+        color: #0f172a !important;
+        font-size: 7.5pt !important;
+      }
+      table#tableDoiSanh td {
+        padding: 4px 4px !important;
+        border: 0.5pt solid #94a3b8 !important;
+        color: #0f172a !important;
+        font-size: 7.8pt !important;
+      }
+      table#tableDoiSanh tbody tr {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      table#tableDoiSanh tbody tr:nth-child(even) {
+        background-color: #f8fafc !important;
+      }
+      table#tableDoiSanh tfoot {
         display: table-footer-group !important;
       }
-      .print-signature-block {
-        display: block !important;
+      table#tableDoiSanh tfoot tr {
+        background-color: #e2e8f0 !important;
+        font-weight: 900 !important;
       }
+      table#tableDoiSanh tfoot td {
+        border-top: 1.5pt solid #0f172a !important;
+        border-bottom: 1.5pt solid #0f172a !important;
+        font-weight: 900 !important;
+        color: #0f172a !important;
+      }
+
+      /* Status pills in print */
+      span.inline-flex, span.inline-block {
+        border: 0.5pt solid currentColor !important;
+        padding: 1px 4px !important;
+        font-size: 7pt !important;
+      }
+
+      /* Methodology notes block on Page 2 */
+      .p-4.bg-slate-50 {
+        margin-top: 3mm !important;
+        padding: 3mm 4mm !important;
+        border: 0.5pt solid #cbd5e1 !important;
+        border-radius: 4px !important;
+        font-size: 7.2pt !important;
+        line-height: 1.3 !important;
+        background: #f8fafc !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      
     }
-  </style>
+  
+</style>
 </head>
 <body class="min-h-screen antialiased flex flex-col custom-scrollbar bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
 
   <!-- TOP APP HEADER -->
   <header class="bg-gradient-to-r from-vimaru-950 via-vimaru-900 to-vimaru-800 text-white sticky top-0 z-40 shadow-lg border-b border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <!-- Brand & Title -->
         <div class="flex items-center gap-3.5 min-w-0">
           <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-inner flex-shrink-0 p-1">
-            <img src="Logo_VMU.png" alt="Logo VMU" class="w-full h-full object-contain" />
+            <i class="fa-solid fa-scale-balanced text-cyan-300 text-2xl"></i>
           </div>
           <div class="min-w-0">
             <div class="text-[11px] font-bold uppercase tracking-wider text-slate-300 leading-tight">
               TRƯỜNG ĐẠI HỌC HÀNG HẢI VIỆT NAM • PHÒNG KHOA HỌC - CÔNG NGHỆ
             </div>
             <h1 class="text-base sm:text-lg lg:text-xl font-black text-white tracking-tight mt-0.5 leading-snug">
-              THỐNG KÊ & ĐỐI SÁNH HIỆU SUẤT HOẠT ĐỘNG NCKH GIỮA CÁC KHOA/ VIỆN
+              THỐNG KÊ & ĐỐI SÁNH NĂNG SUẤT NCKH GIỮA CÁC KHOA/ VIỆN
             </h1>
             <div class="text-[11px] text-cyan-300 font-medium">
               Đánh giá tương quan quy mô đội ngũ & kết quả hoạt động nghiên cứu khoa học năm học 2025-2026
@@ -202,7 +319,7 @@
             <i id="themeToggleIcon" class="fa-solid fa-moon text-yellow-300"></i>
             <span id="themeToggleText">Giao diện Tối</span>
           </button>
-          <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold border border-white/20 shadow-sm transition flex items-center gap-1.5" title="In báo cáo A4 Landscape">
+          <button onclick="prepareAndPrint()" class="bg-white/10 hover:bg-white/20 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold border border-white/20 shadow-sm transition flex items-center gap-1.5" title="In báo cáo A4 Landscape">
             <i class="fa-solid fa-print text-cyan-300"></i>
             <span>In Báo Cáo</span>
           </button>
@@ -213,6 +330,20 @@
 
   <!-- MAIN CONTAINER -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 space-y-5">
+    
+      <div class="text-center mb-2.5">
+        <h1 class="font-black text-[13pt] uppercase tracking-tight text-slate-950 leading-tight">
+          BÁO CÁO ĐỐI SÁNH HIỆU SUẤT HOẠT ĐỘNG KHOA HỌC CÔNG NGHỆ 15 KHOA/ VIỆN
+        </h1>
+        <div class="font-bold text-[10pt] text-slate-800 mt-0.5">
+          NĂM HỌC 2025 - 2026 (THEO ĐỊNH MỨC GIỜ NCKH: 600H)
+        </div>
+        <div class="italic text-[8.5pt] text-slate-600 mt-0.5">
+          (Căn cứ số liệu trích xuất từ Hệ thống Quản lý Khoa học và Công nghệ phục vụ xét tặng giải thưởng Neptune năm hoc 2025-2026)
+        </div>
+      </div>
+    </div>
+
 
     <!-- BANNER TIÊU CHÍ VÀ NGUYÊN TẮC ĐỐI SÁNH -->
     <div class="bg-gradient-to-r from-vimaru-950 via-vimaru-900 to-indigo-950 rounded-3xl p-5 text-white border border-white/10 shadow-md relative overflow-hidden">
@@ -223,18 +354,18 @@
         <div>
           <div class="flex items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-300/30">
-              <i class="fa-solid fa-award mr-1"></i>Hệ thống tiêu chí đánh giá, xếp loại
+              <i class="fa-solid fa-award mr-1"></i>Hệ thống tiêu chí đánh giá
             </span>
             <span class="text-xs text-slate-300">Áp dụng cho 15 Khoa/ Viện toàn Trường</span>
           </div>
           <h2 class="text-lg sm:text-xl font-black text-white mt-1 tracking-tight">
-           Khung đối sánh hiệu xuất hoạt động khoa học công nghệ năm học 2025-2026
+            Khung đối sánh Hiệu suất nghiên cứu khoa học năm học 2025-2026
           </h2>
           <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-4xl leading-relaxed">
             Hội đồng đánh giá và phân loại đơn vị xuất sắc dựa trên tương quan giữa <strong class="text-white">Quy mô đội ngũ (Số CBGV)</strong> và <strong class="text-white">Kết quả NCKH</strong> theo 02 tiêu chí định lượng then chốt:
             <span class="text-emerald-300 font-semibold">(1) Tỷ số Công trình quy đổi / CBGV (Chuẩn: 1,69 CT/người)</span> và
-            <span class="text-cyan-300 font-semibold">(2) Tỷ số Tổng giờ quy đổi / CBGV (Chuẩn: 1.206,51 h/người)</span>.
-            Điểm tổng hợp là trung bình cộng chuẩn hóa (%) của 2 tiêu chí so với ngưỡng trung bình toàn trường.
+            <span class="text-cyan-300 font-semibold">(2) Tỷ số Tiêu chí 2 quy đổi / CBGV (TC2 = (Tổng giờ/600)/CBGV, Chuẩn: 2,01)</span>.
+            Điểm tổng hợp là trung bình cộng chuẩn hóa (%) của 2 tiêu chí so với ngưỡng trung bình toàn Trường.
           </p>
         </div>
         <div class="flex items-center gap-2 flex-shrink-0">
@@ -293,10 +424,10 @@
           <i class="fa-solid fa-clock-rotate-left"></i>
         </div>
         <div class="min-w-0">
-          <div class="text-xs text-cyan-800 dark:text-cyan-300 font-bold uppercase tracking-tight">TB Tiêu Chí 2 (Giờ/CB)</div>
-          <div class="text-xl sm:text-2xl font-black text-cyan-700 dark:text-cyan-300 tabular-nums">1.206,51 <span class="text-xs font-normal">h/người</span></div>
+          <div class="text-xs text-cyan-800 dark:text-cyan-300 font-bold uppercase tracking-tight">TB Tiêu Chí 2 (Quy đổi/CB)</div>
+          <div class="text-xl sm:text-2xl font-black text-cyan-700 dark:text-cyan-300 tabular-nums">2,01 <span class="text-xs font-normal">/người</span></div>
           <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-            <strong class="text-cyan-600 dark:text-cyan-400">6/15</strong> đơn vị đạt ≥ chuẩn
+            <strong class="text-cyan-600 dark:text-cyan-400">2,01 /người</strong> (1.234,66 quy đổi / 600h) • <strong class="text-cyan-600 dark:text-cyan-400">6/15</strong> đơn vị ≥ chuẩn
           </div>
         </div>
       </div>
@@ -350,14 +481,14 @@
             <div>
               <h3 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-                Tiêu Chí 2: Tỷ Số Tổng Giờ Quy Đổi / Cán Bộ - Giảng Viên
+                Tiêu Chí 2: Tỷ Số Khối Lượng Quy Đổi / Cán Bộ - Giảng Viên
               </h3>
               <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                Tổng số giờ NCKH quy đổi / Số CBGV đơn vị (Sắp xếp giảm dần)
+                (Tổng số giờ NCKH đơn vị / 600h) / Số CBGV cơ hữu (Sắp xếp giảm dần)
               </p>
             </div>
             <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-cyan-300">
-              TB Chuẩn: 1.206,51 h
+              TB Chuẩn: 2,01 (1.234,66 quy đổi / 600h)
             </span>
           </div>
           <div class="chart-container-box h-80 sm:h-96 mt-3 relative">
@@ -365,19 +496,19 @@
           </div>
         </div>
         <div class="text-[11px] text-slate-500 dark:text-slate-400 pt-2.5 border-t border-slate-150 dark:border-slate-800 flex items-center justify-between">
-          <span><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i>Đường nét đứt màu vàng là ngưỡng Trung bình toàn trường (1.206,51 h/người)</span>
+          <span><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i>Đường nét đứt màu vàng là ngưỡng TB toàn trường: 2,01 /người (1.234,66 quy đổi / 614 CB)</span>
           <span class="font-bold text-blue-600 dark:text-cyan-400">6/15 đơn vị đạt ≥ mức TB</span>
         </div>
       </div>
     </div>
 
     <!-- BIỂU ĐỒ BỔ TRỢ: MA TRẬN TƯƠNG QUAN QUY MÔ VS NĂNG SUẤT NCKH -->
-    <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 card-shadow">
+    <div class="no-print bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 card-shadow">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-3 border-b border-slate-150 dark:border-slate-800">
         <div>
           <h3 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100 flex items-center gap-2">
             <i class="fa-solid fa-diagram-project text-indigo-500"></i>
-            Ma Trận Tương Quan: Quy Mô Đội Ngũ (Trục X) vs Điểm Hiệu Suất NCKH Chuẩn Hóa (Trục Y)
+            Ma trận tương quan: Quy mô đội ngũ NCKH (Trục X) vs Điểm hiệu suất NCKH chuẩn hóa (Trục Y)
           </h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
             Bong bóng thể hiện 15 Khoa/Viện. Kích thước bong bóng tỷ lệ thuận với Tổng số giờ NCKH của đơn vị.
@@ -402,10 +533,10 @@
         <div>
           <h3 class="font-black text-base sm:text-lg text-slate-900 dark:text-slate-100 flex items-center gap-2">
             <i class="fa-solid fa-ranking-star text-amber-500"></i>
-            Bảng Xếp Hạng & Chỉ Số Đối Sánh Hiệu Suất (15 Khoa / Viện)
+            Bảng xếp hạng & Chỉ số đối sánh hiệu suất nghiên cứu khoa học
           </h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            Cơ sở đánh giá thi đua khen thưởng năm học 2025 - 2026. Toàn bộ 15 Khoa/Viện đã được tích hợp đầy đủ.
+            Cơ sở đánh giá xét tặng giải thưởng Nghiên cứu khoa học Neptune năm học 2025-2026.
           </p>
         </div>
 
@@ -470,18 +601,18 @@
               </th>
               <th class="py-3.5 px-3 text-right cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('tong_gio')" title="Sắp xếp theo Tổng quy đổi Tiêu chí 2">
                 Tổng quy đổi TC2 <i id="sortIcon_tong_gio" class="fa-solid fa-sort ml-1 text-slate-400"></i>
-                <span class="block text-[10px] font-normal text-slate-500">(Giờ / 1.206,51)</span>
+                <span class="block text-[10px] font-normal text-slate-500">(Giờ / 600)</span>
               </th>
               <th class="py-3.5 px-3 text-right cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('gio_per_gv')" title="Sắp xếp theo Tỷ số TC2 / Cán bộ">
                 Tỷ số TC2 / Cán bộ <i id="sortIcon_gio_per_gv" class="fa-solid fa-sort ml-1 text-slate-400"></i>
-                <span class="block text-[10px] font-normal text-slate-500">(Chuẩn TB: 1,00)</span>
+                <span class="block text-[10px] font-normal text-slate-500">(Chuẩn TB: 2,01)</span>
               </th>
               <th class="py-3.5 px-2 text-center w-16 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('rank_gio')" title="Sắp xếp theo Hạng TC2">
                 Hạng TC2 <i id="sortIcon_rank_gio" class="fa-solid fa-sort ml-1 text-slate-400"></i>
               </th>
               <th class="py-3.5 px-3 text-right cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition bg-amber-50/80 dark:bg-amber-950/30 text-amber-900 dark:text-amber-200 font-black border-l border-amber-200/80 dark:border-amber-800/60" onclick="toggleSortColumn('tbc')" title="Sắp xếp theo TB 2 Tiêu chí">
                 TB 2 Tiêu Chí <i id="sortIcon_tbc" class="fa-solid fa-sort-down ml-1 text-amber-600"></i>
-                <span class="block text-[10px] font-normal text-amber-700/80 dark:text-amber-300/80">(TC1+TC2)/2 • Chuẩn TB: 1,34</span>
+                <span class="block text-[10px] font-normal text-amber-700/80 dark:text-amber-300/80">(TC1+TC2)/2 • Chuẩn TB: 1,85</span>
               </th>
               <th class="py-3.5 px-4 text-center min-w-[210px] whitespace-nowrap cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition" onclick="toggleSortColumn('danh_gia')" title="Sắp xếp theo Đánh giá">
                 Đánh giá so với Chuẩn TB <i id="sortIcon_danh_gia" class="fa-solid fa-sort ml-1 text-slate-400"></i>
@@ -509,17 +640,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#1</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">108,42</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">218,02</div>
                 <div class="text-[10px] text-slate-400 font-normal">130.814,78 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-700 dark:text-cyan-400 font-bold">
-                <div class="font-bold">1,47</div>
+                <div class="font-bold">2,95</div>
                 <div class="text-[10px] text-slate-400 font-normal">1.767,77 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#2</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-amber-700 dark:text-amber-300">2,04</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">151,9% • Hạng #1</div>
+                <div class="font-black text-sm text-amber-700 dark:text-amber-300">2,79</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">151,0% • Hạng #1</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-50 text-emerald-700 border border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800"><i class="fa-solid fa-circle-check text-xs"></i> Vượt cả 2 tiêu chí</span>
@@ -549,17 +680,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#2</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">68,63</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">138,01</div>
                 <div class="text-[10px] text-slate-400 font-normal">82.806,16 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-700 dark:text-cyan-400 font-bold">
-                <div class="font-bold">1,56</div>
+                <div class="font-bold">3,14</div>
                 <div class="text-[10px] text-slate-400 font-normal">1.881,96 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#1</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-amber-700 dark:text-amber-300">2,00</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">148,9% • Hạng #2</div>
+                <div class="font-black text-sm text-amber-700 dark:text-amber-300">2,79</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">151,0% • Hạng #2</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-50 text-emerald-700 border border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800"><i class="fa-solid fa-circle-check text-xs"></i> Vượt cả 2 tiêu chí</span>
@@ -589,17 +720,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#4</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">55,06</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">110,72</div>
                 <div class="text-[10px] text-slate-400 font-normal">66.432,85 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-700 dark:text-cyan-400 font-bold">
-                <div class="font-bold">1,20</div>
+                <div class="font-bold">2,41</div>
                 <div class="text-[10px] text-slate-400 font-normal">1.444,19 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#3</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-amber-700 dark:text-amber-300">1,65</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">122,9% • Hạng #3</div>
+                <div class="font-black text-sm text-amber-700 dark:text-amber-300">2,26</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">122,3% • Hạng #3</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-50 text-emerald-700 border border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800"><i class="fa-solid fa-circle-check text-xs"></i> Vượt cả 2 tiêu chí</span>
@@ -629,17 +760,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#3</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">58,68</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">117,99</div>
                 <div class="text-[10px] text-slate-400 font-normal">70.793,65 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-700 dark:text-cyan-400 font-bold">
-                <div class="font-bold">1,07</div>
+                <div class="font-bold">2,15</div>
                 <div class="text-[10px] text-slate-400 font-normal">1.287,16 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#6</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-amber-700 dark:text-amber-300">1,62</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">120,6% • Hạng #4</div>
+                <div class="font-black text-sm text-amber-700 dark:text-amber-300">2,17</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">117,4% • Hạng #4</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-50 text-emerald-700 border border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800"><i class="fa-solid fa-circle-check text-xs"></i> Vượt cả 2 tiêu chí</span>
@@ -669,17 +800,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#6</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">30,53</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">61,40</div>
                 <div class="text-[10px] text-slate-400 font-normal">36.838,11 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-700 dark:text-cyan-400 font-bold">
-                <div class="font-bold">1,13</div>
+                <div class="font-bold">2,27</div>
                 <div class="text-[10px] text-slate-400 font-normal">1.364,37 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#4</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-amber-700 dark:text-amber-300">1,42</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">105,7% • Hạng #5</div>
+                <div class="font-black text-sm text-amber-700 dark:text-amber-300">1,98</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">107,1% • Hạng #5</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-emerald-50 text-emerald-700 border border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800"><i class="fa-solid fa-circle-check text-xs"></i> Vượt cả 2 tiêu chí</span>
@@ -709,17 +840,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#5</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">15,69</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">31,56</div>
                 <div class="text-[10px] text-slate-400 font-normal">18.935,16 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,83</div>
+                <div class="font-bold">1,66</div>
                 <div class="text-[10px] text-slate-400 font-normal">996,59 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#9</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-amber-700 dark:text-amber-300">1,39</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">103,5% • Hạng #6</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,80</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">97,4% • Hạng #6</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-teal-50 text-teal-700 border border-teal-300 dark:bg-teal-950/60 dark:text-teal-300 dark:border-teal-800"><i class="fa-solid fa-arrow-up text-xs"></i> Vượt chuẩn CT</span>
@@ -749,17 +880,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#7</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">39,11</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">78,65</div>
                 <div class="text-[10px] text-slate-400 font-normal">47.189,93 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,93</div>
+                <div class="font-bold">1,87</div>
                 <div class="text-[10px] text-slate-400 font-normal">1.123,57 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#7</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,28</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">95,3% • Hạng #7</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,75</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">94,7% • Hạng #7</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-slate-100 text-slate-700 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700">Tiệm cận TB</span>
@@ -771,48 +902,8 @@
               </td>
             </tr>
 
-            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(9)" data-unit-id="9">
-              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">8</td>
-              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
-                <div class="flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
-                    <i class="fa-solid fa-anchor"></i>
-                  </span>
-                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Hàng hải</span>
-                  <span class="text-[10px] text-slate-400 font-mono">(KHH)</span>
-                </div>
-              </td>
-              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">77</td>
-              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">122</td>
-              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                1,58
-              </td>
-              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#8</span></td>
-              <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">68,32</div>
-                <div class="text-[10px] text-slate-400 font-normal">82.424,91 h</div>
-              </td>
-              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,89</div>
-                <div class="text-[10px] text-slate-400 font-normal">1.070,45 h/CB</div>
-              </td>
-              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#8</span></td>
-              <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,24</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">92,3% • Hạng #8</div>
-              </td>
-              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-slate-100 text-slate-700 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700">Tiệm cận TB</span>
-              </td>
-              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
-                <button onclick="openUnitModal(9)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
-                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
-                </button>
-              </td>
-            </tr>
-
             <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(8)" data-unit-id="8">
-              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">9</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">8</td>
               <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
                 <div class="flex items-center gap-2">
                   <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
@@ -829,23 +920,63 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#11</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">29,85</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">60,02</div>
                 <div class="text-[10px] text-slate-400 font-normal">36.011,11 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-blue-700 dark:text-cyan-400 font-bold">
-                <div class="font-bold">1,11</div>
+                <div class="font-bold">2,22</div>
                 <div class="text-[10px] text-slate-400 font-normal">1.333,74 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#5</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,19</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">88,6% • Hạng #9</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,74</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">94,1% • Hạng #8</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-blue-50 text-blue-700 border border-blue-300 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800"><i class="fa-solid fa-arrow-up text-xs"></i> Vượt chuẩn Giờ</span>
               </td>
               <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
                 <button onclick="openUnitModal(8)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(9)" data-unit-id="9">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">9</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-anchor"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">Khoa Hàng hải</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(KHH)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">77</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">122</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1,58
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#8</span></td>
+              <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
+                <div class="font-bold text-slate-900 dark:text-slate-100">137,37</div>
+                <div class="text-[10px] text-slate-400 font-normal">82.424,91 h</div>
+              </td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                <div class="font-bold">1,78</div>
+                <div class="text-[10px] text-slate-400 font-normal">1.070,45 h/CB</div>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#8</span></td>
+              <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,68</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">90,9% • Hạng #9</div>
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-slate-100 text-slate-700 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700">Tiệm cận TB</span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(9)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
                   <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
                 </button>
               </td>
@@ -869,17 +1000,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#10</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">41,57</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">83,60</div>
                 <div class="text-[10px] text-slate-400 font-normal">50.159,69 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,82</div>
+                <div class="font-bold">1,64</div>
                 <div class="text-[10px] text-slate-400 font-normal">983,52 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#10</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,07</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">79,7% • Hạng #10</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,48</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">80,1% • Hạng #10</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-slate-100 text-slate-700 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700">Tiệm cận TB</span>
@@ -909,17 +1040,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#9</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">20,60</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">41,43</div>
                 <div class="text-[10px] text-slate-400 font-normal">24.859,98 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,76</div>
+                <div class="font-bold">1,53</div>
                 <div class="text-[10px] text-slate-400 font-normal">920,74 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#12</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,06</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">78,9% • Hạng #11</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,45</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">78,5% • Hạng #11</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-slate-100 text-slate-700 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700">Tiệm cận TB</span>
@@ -931,48 +1062,8 @@
               </td>
             </tr>
 
-            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(13)" data-unit-id="13">
-              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">12</td>
-              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
-                <div class="flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
-                    <i class="fa-solid fa-person-running"></i>
-                  </span>
-                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">TT. Giáo dục thể chất HH</span>
-                  <span class="text-[10px] text-slate-400 font-mono">(TTGDTC)</span>
-                </div>
-              </td>
-              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">18</td>
-              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">20</td>
-              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                1,11
-              </td>
-              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#12</span></td>
-              <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">12,56</div>
-                <div class="text-[10px] text-slate-400 font-normal">15.149,99 h</div>
-              </td>
-              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,70</div>
-                <div class="text-[10px] text-slate-400 font-normal">841,67 h/CB</div>
-              </td>
-              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#13</span></td>
-              <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">0,91</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">67,8% • Hạng #12</div>
-              </td>
-              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-50 text-amber-700 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800">Cần phấn đấu</span>
-              </td>
-              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
-                <button onclick="openUnitModal(13)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
-                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
-                </button>
-              </td>
-            </tr>
-
             <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(12)" data-unit-id="12">
-              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">13</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">12</td>
               <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
                 <div class="flex items-center gap-2">
                   <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
@@ -989,23 +1080,63 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#13</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">35,12</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">70,63</div>
                 <div class="text-[10px] text-slate-400 font-normal">42.377,76 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,76</div>
+                <div class="font-bold">1,54</div>
                 <div class="text-[10px] text-slate-400 font-normal">921,26 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#11</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">0,89</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">66,3% • Hạng #13</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,28</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">69,3% • Hạng #12</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-50 text-amber-700 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800">Cần phấn đấu</span>
               </td>
               <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
                 <button onclick="openUnitModal(12)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
+                </button>
+              </td>
+            </tr>
+
+            <tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition border-b border-slate-200/80 dark:border-slate-800 cursor-pointer" onclick="openUnitModal(13)" data-unit-id="13">
+              <td class="py-3.5 px-3 text-center font-bold text-slate-500 dark:text-slate-400 tabular-nums whitespace-nowrap">13</td>
+              <td class="py-3.5 px-4 font-bold text-slate-900 dark:text-slate-100 min-w-[200px] whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-lg bg-vimaru-100 dark:bg-slate-800 text-vimaru-700 dark:text-cyan-400 flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fa-solid fa-person-running"></i>
+                  </span>
+                  <span class="hover:text-vimaru-600 dark:hover:text-cyan-400 transition">TT. Giáo dục thể chất HH</span>
+                  <span class="text-[10px] text-slate-400 font-mono">(TTGDTC)</span>
+                </div>
+              </td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">18</td>
+              <td class="py-3.5 px-3 text-center font-bold text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">20</td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                1,11
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#12</span></td>
+              <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
+                <div class="font-bold text-slate-900 dark:text-slate-100">25,25</div>
+                <div class="text-[10px] text-slate-400 font-normal">15.149,99 h</div>
+              </td>
+              <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
+                <div class="font-bold">1,40</div>
+                <div class="text-[10px] text-slate-400 font-normal">841,67 h/CB</div>
+              </td>
+              <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#13</span></td>
+              <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">1,25</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">67,6% • Hạng #13</div>
+              </td>
+              <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-50 text-amber-700 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800">Cần phấn đấu</span>
+              </td>
+              <td class="py-3.5 px-2 text-center no-print whitespace-nowrap" onclick="event.stopPropagation()">
+                <button onclick="openUnitModal(13)" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-vimaru-100 dark:hover:bg-slate-700 text-vimaru-700 dark:text-cyan-300 font-bold transition text-[11px]" title="Xem hồ sơ chi tiết">
                   <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>Xem
                 </button>
               </td>
@@ -1029,17 +1160,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#14</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">4,93</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">9,92</div>
                 <div class="text-[10px] text-slate-400 font-normal">5.950,00 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,45</div>
+                <div class="font-bold">0,90</div>
                 <div class="text-[10px] text-slate-400 font-normal">540,91 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#15</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">0,64</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">47,7% • Hạng #14</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">0,86</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">46,5% • Hạng #14</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-50 text-amber-700 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800">Cần phấn đấu</span>
@@ -1069,17 +1200,17 @@
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">#15</span></td>
               <td class="py-3.5 px-3 text-right font-medium text-slate-800 dark:text-slate-200 tabular-nums whitespace-nowrap">
-                <div class="font-bold text-slate-900 dark:text-slate-100">24,91</div>
+                <div class="font-bold text-slate-900 dark:text-slate-100">50,08</div>
                 <div class="text-[10px] text-slate-400 font-normal">30.050,01 h</div>
               </td>
               <td class="py-3.5 px-3 text-right tabular-nums whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
-                <div class="font-bold">0,50</div>
+                <div class="font-bold">1,00</div>
                 <div class="text-[10px] text-slate-400 font-normal">601,00 h/CB</div>
               </td>
               <td class="py-3.5 px-2 text-center tabular-nums whitespace-nowrap"><span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">#14</span></td>
               <td class="py-3.5 px-3 text-right tabular-nums border-l border-amber-200/80 dark:border-amber-800/60 bg-amber-50/40 dark:bg-amber-950/20 whitespace-nowrap">
-                <div class="font-black text-sm text-slate-700 dark:text-slate-300">0,53</div>
-                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">39,5% • Hạng #15</div>
+                <div class="font-black text-sm text-slate-700 dark:text-slate-300">0,78</div>
+                <div class="text-[10px] text-slate-400 dark:text-slate-500 font-semibold">42,2% • Hạng #15</div>
               </td>
               <td class="py-3.5 px-4 text-center whitespace-nowrap min-w-[210px]">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap bg-amber-50 text-amber-700 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800">Cần phấn đấu</span>
@@ -1100,16 +1231,16 @@
               <td class="py-3.5 px-3 text-right font-black text-emerald-600 dark:text-emerald-400 tabular-nums">1,69 CT/người</td>
               <td class="py-3.5 px-2 text-center text-xs text-slate-500 font-semibold">Mức TB</td>
               <td class="py-3.5 px-3 text-right font-black text-slate-900 dark:text-cyan-300 tabular-nums">
-                <div>614,00</div>
+                <div>1.234,66</div>
                 <div class="text-[10px] font-normal text-slate-500">740.794,09 h</div>
               </td>
               <td class="py-3.5 px-3 text-right font-black text-blue-600 dark:text-cyan-300 tabular-nums">
-                <div>1,00 /người</div>
+                <div>2,01 /người</div>
                 <div class="text-[10px] font-normal text-slate-500">1.206,51 h/người</div>
               </td>
               <td class="py-3.5 px-2 text-center text-xs text-slate-500 font-semibold">Mức TB</td>
               <td class="py-3.5 px-3 text-right font-black text-amber-700 dark:text-amber-300 bg-amber-100/50 dark:bg-amber-950/40 tabular-nums border-l border-amber-200 dark:border-amber-800">
-                <div class="text-sm">1,34</div>
+                <div class="text-sm">1,85</div>
                 <div class="text-[10px] font-normal text-slate-500">100,0% • Chuẩn toàn trường</div>
               </td>
               <td class="py-3.5 px-4 text-center">
@@ -1130,36 +1261,14 @@
           Ghi chú & Phương pháp tính toán đối sánh:
         </div>
         <ul class="list-disc list-inside space-y-1 pl-1">
-          <li><strong>Tiêu chí 1 (Tỷ số Công trình quy đổi / CBGV):</strong> Tổng số công trình khoa học được Hội đồng ghi nhận tính điểm quy đổi chia cho số CB, GV cơ hữu của đơn vị. Chuẩn toàn trường = <span class="font-semibold text-emerald-700 dark:text-emerald-300">1,69 CT/người</span>.</li>
-          <li><strong>Tiêu chí 2 (Tỷ số Tổng giờ quy đổi / CBGV):</strong> Tổng số giờ NCKH quy đổi trong năm của đơn vị chia cho số CB, GV cơ hữu. Chuẩn toàn trường = <span class="font-semibold text-blue-700 dark:text-cyan-300">1.206,51 h/người</span>.</li>
-          <li><strong>Điểm TB 2 Tiêu Chí (% Chuẩn hóa):</strong> Trung bình cộng tỷ lệ % hoàn thành so với mức chuẩn toàn trường: <code>Điểm TB (%) = [(Tỷ số CT / 1,69) + (Tỷ số Giờ / 1.206,51)] / 2 * 100%</code>. Mức 100% là mức trung bình chuẩn toàn trường.</li>
-          <li><strong>Rank TB:</strong> Trung bình cộng thứ hạng của đơn vị ở 2 tiêu chí (Hạng CT + Hạng Giờ)/2. Điểm rank càng nhỏ thể hiện vị trí càng xuất sắc.</li>
-          <li><strong>Xếp loại Hội đồng:</strong> Đơn vị đạt <span class="font-bold text-emerald-600">Xuất sắc</span> khi vượt chuẩn cả 2 tiêu chí; <span class="font-bold text-cyan-600">Đạt chuẩn CT</span> hoặc <span class="font-bold text-blue-600">Đạt chuẩn Giờ</span> khi vượt 1 trong 2 tiêu chí; <span class="font-bold text-amber-600">Cần phấn đấu</span> khi dưới mức TB cả 2 tiêu chí.</li>
+          <li><strong>Tiêu chí 1 (Tỷ số Công trình quy đổi / CBGV):</strong> Tổng số công trình khoa học được Hội đồng ghi nhận tính điểm quy đổi chia cho số CB, GV cơ hữu của đơn vị. Chuẩn toàn trường = <span class="font-semibold text-emerald-700 dark:text-emerald-300">1,69 CT/người</span> (1.035 CT / 614 CBGV).</li>
+          <li><strong>Tiêu chí 2 (Tỷ số Tiêu chí 2 quy đổi / CBGV):</strong> Tổng số giờ NCKH quy đổi của đơn vị chia cho định mức 600h, sau đó chia cho số CBGV cơ hữu: <code>TC2 = (Tổng giờ / 600) / Số CBGV</code>. Chuẩn toàn trường = <span class="font-semibold text-blue-700 dark:text-cyan-300">2,01 /người</span> (1.234,66 suất quy đổi / 614 CBGV ~ 1.206,51 h/người).</li>
+          <li><strong>TB 2 Tiêu Chí (Điểm TBC):</strong> Trung bình cộng 2 tiêu chí đã cân bằng thang đo: <code>TBC = (TC1 + TC2) / 2</code>. Chuẩn toàn trường = <span class="font-semibold text-amber-700 dark:text-amber-300">1,85 /người</span> (quy ước 100,0%). Tỷ lệ % chuẩn hóa = (TBC / 1,85) * 100%.</li>
+          <li><strong>Thứ hạng xét duyệt:</strong> Xếp hạng ưu tiên theo điểm TBC giảm dần (từ #1 đến #15).</li>
+          <li><strong>Xếp loại Hội đồng:</strong> Đơn vị đạt <span class="font-bold text-emerald-600">Xuất sắc toàn diện</span> khi vượt chuẩn cả 2 tiêu chí (TC1 ≥ 1,69 và TC2 ≥ 2,01); <span class="font-bold text-teal-600">Vượt chuẩn CT</span> (TC1 ≥ 1,69); <span class="font-bold text-blue-600">Vượt chuẩn Giờ</span> (TC2 ≥ 2,01); <span class="font-bold text-slate-600">Tiệm cận TB</span> (75% - 95% chuẩn); <span class="font-bold text-amber-600">Cần phấn đấu</span> (&lt; 75% chuẩn).</li>
         </ul>
       </div>
 
-      <!-- Khối chữ ký hành chính cho chế độ In ấn A4 Landscape -->
-      <div class="print-signature-block hidden mt-8 pt-4 border-t border-slate-400 text-xs">
-        <div class="grid grid-cols-3 text-center">
-          <div>
-            <div class="font-bold uppercase">NGƯỜI LẬP BIỂU</div>
-            <div class="text-[11px] text-slate-500 italic mt-1">Chuyên viên phụ trách KH-CN</div>
-            <div class="h-20"></div>
-            <div class="font-black text-slate-900">ThS. Nguyễn Trung Kiên</div>
-          </div>
-          <div>
-            <div class="font-bold uppercase">TRƯỞNG PHÒNG KH-CN</div>
-            <div class="text-[11px] text-slate-500 italic mt-1">Xác nhận khối lượng</div>
-            <div class="h-20"></div>
-            <div class="font-black text-slate-900">PGS.TS. Phạm Văn Thuần</div>
-          </div>
-          <div>
-            <div class="font-bold uppercase">HIỆU TRƯỞNG</div>
-            <div class="text-[11px] text-slate-500 italic mt-1">Chủ tịch Hội đồng TĐ-KT</div>
-            <div class="h-20"></div>
-            <div class="font-black text-slate-900">PGS.TS. Phạm Xuân Dương</div>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -1268,10 +1377,12 @@
   <script>
     const BENCHMARK_CT = 1035 / 614; // ~1.685667
     const BENCHMARK_GIO = 740794.09 / 614; // ~1206.505
-    const BENCHMARK_TBC = (BENCHMARK_CT + 1.0) / 2.0; // ~1.3428
+    const DINH_MUC_GIO = 600.0;
+    const BENCHMARK_TC2 = (740794.09 / 600.0) / 614.0; // ~2.01084
+    const BENCHMARK_TBC = (BENCHMARK_CT + BENCHMARK_TC2) / 2.0; // ~1.84825
 
     // Raw 15 units verified data
-    const rawUnitsData = [{"id": 1, "don_vi": "Khoa Kinh tế", "ma_don_vi": "KKT", "so_gv": 74, "so_ct": 194, "ct_per_gv": 2.62, "rank_ct": 1, "tong_gio": 130814.78, "gio_per_gv": 1767.77, "rank_gio": 2, "score": 151.0, "rank_tb": 1.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 23354.34, "baibao_h": 59128.8, "hoithao_h": 20631.66, "giaotrinh_h": 10333.32, "hdsv_h": 17366.66, "tc_sc_h": 0.0, "icon": "fa-chart-line", "tong_tc2_moi": 108.42, "ratio_tc2_moi": 1.47, "raw_avg": 2.04, "tbc": 2.04, "tbc_norm": 151.9, "rank_xet": 1}, {"id": 2, "don_vi": "Khoa Công trình", "ma_don_vi": "KCT", "so_gv": 44, "so_ct": 107, "ct_per_gv": 2.43, "rank_ct": 2, "tong_gio": 82806.16, "gio_per_gv": 1881.96, "rank_gio": 1, "score": 150.1, "rank_tb": 1.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 16933.3, "baibao_h": 43566.65, "hoithao_h": 7556.2, "giaotrinh_h": 8100.01, "hdsv_h": 5750.0, "tc_sc_h": 900.0, "icon": "fa-helmet-safety", "tong_tc2_moi": 68.63, "ratio_tc2_moi": 1.56, "raw_avg": 2.0, "tbc": 2.0, "tbc_norm": 148.9, "rank_xet": 2}, {"id": 3, "don_vi": "Khoa Điện - Điện tử", "ma_don_vi": "DDT", "so_gv": 46, "so_ct": 97, "ct_per_gv": 2.11, "rank_ct": 4, "tong_gio": 66432.85, "gio_per_gv": 1444.19, "rank_gio": 3, "score": 122.4, "rank_tb": 3.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 14581.48, "baibao_h": 34649.08, "hoithao_h": 10018.94, "giaotrinh_h": 4800.01, "hdsv_h": 2383.34, "tc_sc_h": 0.0, "icon": "fa-bolt", "tong_tc2_moi": 55.06, "ratio_tc2_moi": 1.2, "raw_avg": 1.65, "tbc": 1.65, "tbc_norm": 122.9, "rank_xet": 3}, {"id": 4, "don_vi": "Khoa Quản trị - Tài chính", "ma_don_vi": "QTC", "so_gv": 55, "so_ct": 120, "ct_per_gv": 2.18, "rank_ct": 3, "tong_gio": 70793.65, "gio_per_gv": 1287.16, "rank_gio": 6, "score": 118.0, "rank_tb": 4.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 11777.17, "baibao_h": 28968.86, "hoithao_h": 9947.6, "giaotrinh_h": 10433.35, "hdsv_h": 9666.67, "tc_sc_h": 0.0, "icon": "fa-coins", "tong_tc2_moi": 58.68, "ratio_tc2_moi": 1.07, "raw_avg": 1.62, "tbc": 1.62, "tbc_norm": 120.6, "rank_xet": 4}, {"id": 5, "don_vi": "Khoa Công nghệ thông tin", "ma_don_vi": "CNTT", "so_gv": 27, "so_ct": 46, "ct_per_gv": 1.7, "rank_ct": 6, "tong_gio": 36838.11, "gio_per_gv": 1364.37, "rank_gio": 4, "score": 107.0, "rank_tb": 5.0, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 7621.04, "baibao_h": 12958.73, "hoithao_h": 3008.33, "giaotrinh_h": 1700.0, "hdsv_h": 11550.01, "tc_sc_h": 0.0, "icon": "fa-laptop-code", "tong_tc2_moi": 30.53, "ratio_tc2_moi": 1.13, "raw_avg": 1.42, "tbc": 1.42, "tbc_norm": 105.7, "rank_xet": 5}, {"id": 6, "don_vi": "Khoa Đóng tàu", "ma_don_vi": "KDT", "so_gv": 19, "so_ct": 37, "ct_per_gv": 1.95, "rank_ct": 5, "tong_gio": 18935.16, "gio_per_gv": 996.59, "rank_gio": 9, "score": 99.1, "rank_tb": 7.0, "danh_gia_code": "ct_pass", "danh_gia_text": "Vượt chuẩn CT", "badge_icon": "fa-arrow-up", "badge_class": "bg-teal-50 text-teal-700 border border-teal-200 dark:bg-teal-950/60 dark:text-teal-300 dark:border-teal-800", "detai_h": 2399.99, "baibao_h": 6631.85, "hoithao_h": 6308.88, "giaotrinh_h": 1277.78, "hdsv_h": 1116.66, "tc_sc_h": 1200.0, "icon": "fa-ship", "tong_tc2_moi": 15.69, "ratio_tc2_moi": 0.83, "raw_avg": 1.39, "tbc": 1.39, "tbc_norm": 103.5, "rank_xet": 6}, {"id": 7, "don_vi": "Viện Cơ khí", "ma_don_vi": "VCK", "so_gv": 42, "so_ct": 69, "ct_per_gv": 1.64, "rank_ct": 7, "tong_gio": 47189.93, "gio_per_gv": 1123.57, "rank_gio": 7, "score": 95.2, "rank_tb": 7.0, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 15699.97, "baibao_h": 21551.07, "hoithao_h": 3688.89, "giaotrinh_h": 1600.0, "hdsv_h": 4650.0, "tc_sc_h": 0.0, "icon": "fa-gears", "tong_tc2_moi": 39.11, "ratio_tc2_moi": 0.93, "raw_avg": 1.28, "tbc": 1.28, "tbc_norm": 95.3, "rank_xet": 7}, {"id": 8, "don_vi": "Viện Môi trường", "ma_don_vi": "VMT", "so_gv": 27, "so_ct": 34, "ct_per_gv": 1.26, "rank_ct": 11, "tong_gio": 36011.11, "gio_per_gv": 1333.74, "rank_gio": 5, "score": 92.6, "rank_tb": 8.0, "danh_gia_code": "gio_pass", "danh_gia_text": "Vượt chuẩn Giờ", "badge_icon": "fa-arrow-up", "badge_class": "bg-blue-50 text-blue-700 border border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800", "detai_h": 8599.99, "baibao_h": 17219.42, "hoithao_h": 4425.01, "giaotrinh_h": 3600.03, "hdsv_h": 2166.66, "tc_sc_h": 0.0, "icon": "fa-leaf", "tong_tc2_moi": 29.85, "ratio_tc2_moi": 1.11, "raw_avg": 1.19, "tbc": 1.19, "tbc_norm": 88.6, "rank_xet": 9}, {"id": 9, "don_vi": "Khoa Hàng hải", "ma_don_vi": "KHH", "so_gv": 77, "so_ct": 122, "ct_per_gv": 1.58, "rank_ct": 8, "tong_gio": 82424.91, "gio_per_gv": 1070.45, "rank_gio": 8, "score": 91.2, "rank_tb": 8.0, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 14933.2, "baibao_h": 40709.8, "hoithao_h": 19815.24, "giaotrinh_h": 4666.68, "hdsv_h": 2299.99, "tc_sc_h": 0.0, "icon": "fa-anchor", "tong_tc2_moi": 68.32, "ratio_tc2_moi": 0.89, "raw_avg": 1.24, "tbc": 1.24, "tbc_norm": 92.3, "rank_xet": 8}, {"id": 10, "don_vi": "Khoa Máy tàu biển", "ma_don_vi": "MTB", "so_gv": 51, "so_ct": 68, "ct_per_gv": 1.33, "rank_ct": 10, "tong_gio": 50159.69, "gio_per_gv": 983.52, "rank_gio": 10, "score": 80.2, "rank_tb": 10.0, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 10399.93, "baibao_h": 26669.75, "hoithao_h": 7440.01, "giaotrinh_h": 2800.0, "hdsv_h": 2850.0, "tc_sc_h": 0.0, "icon": "fa-cogs", "tong_tc2_moi": 41.57, "ratio_tc2_moi": 0.82, "raw_avg": 1.07, "tbc": 1.07, "tbc_norm": 79.7, "rank_xet": 10}, {"id": 11, "don_vi": "Khoa Lý luận chính trị", "ma_don_vi": "LLCT", "so_gv": 27, "so_ct": 37, "ct_per_gv": 1.37, "rank_ct": 9, "tong_gio": 24859.98, "gio_per_gv": 920.74, "rank_gio": 12, "score": 78.8, "rank_tb": 10.5, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 3199.99, "baibao_h": 14880.0, "hoithao_h": 6779.99, "giaotrinh_h": 0.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-book-open", "tong_tc2_moi": 20.6, "ratio_tc2_moi": 0.76, "raw_avg": 1.06, "tbc": 1.06, "tbc_norm": 78.9, "rank_xet": 11}, {"id": 12, "don_vi": "Khoa Cơ sở - Cơ bản", "ma_don_vi": "CSCB", "so_gv": 46, "so_ct": 47, "ct_per_gv": 1.02, "rank_ct": 13, "tong_gio": 42377.76, "gio_per_gv": 921.26, "rank_gio": 11, "score": 68.5, "rank_tb": 12.0, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 4700.0, "baibao_h": 19827.76, "hoithao_h": 10050.0, "giaotrinh_h": 400.0, "hdsv_h": 7400.0, "tc_sc_h": 0.0, "icon": "fa-atom", "tong_tc2_moi": 35.12, "ratio_tc2_moi": 0.76, "raw_avg": 0.89, "tbc": 0.89, "tbc_norm": 66.3, "rank_xet": 13}, {"id": 13, "don_vi": "TT. Giáo dục thể chất HH", "ma_don_vi": "TTGDTC", "so_gv": 18, "so_ct": 20, "ct_per_gv": 1.11, "rank_ct": 12, "tong_gio": 15149.99, "gio_per_gv": 841.67, "rank_gio": 13, "score": 67.8, "rank_tb": 12.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 800.0, "baibao_h": 6899.99, "hoithao_h": 1650.0, "giaotrinh_h": 5800.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-person-running", "tong_tc2_moi": 12.56, "ratio_tc2_moi": 0.7, "raw_avg": 0.91, "tbc": 0.91, "tbc_norm": 67.8, "rank_xet": 12}, {"id": 14, "don_vi": "Trung tâm GDQP AN", "ma_don_vi": "TTGDQP", "so_gv": 11, "so_ct": 9, "ct_per_gv": 0.82, "rank_ct": 14, "tong_gio": 5950.0, "gio_per_gv": 540.91, "rank_gio": 15, "score": 46.7, "rank_tb": 14.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 0.0, "baibao_h": 2400.0, "hoithao_h": 3550.0, "giaotrinh_h": 0.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-shield-halved", "tong_tc2_moi": 4.93, "ratio_tc2_moi": 0.45, "raw_avg": 0.64, "tbc": 0.64, "tbc_norm": 47.7, "rank_xet": 14}, {"id": 15, "don_vi": "Khoa Ngoại ngữ", "ma_don_vi": "KNN", "so_gv": 50, "so_ct": 28, "ct_per_gv": 0.56, "rank_ct": 15, "tong_gio": 30050.01, "gio_per_gv": 601.0, "rank_gio": 14, "score": 41.5, "rank_tb": 14.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 4000.0, "baibao_h": 10900.0, "hoithao_h": 7050.0, "giaotrinh_h": 3600.0, "hdsv_h": 4500.01, "tc_sc_h": 0.0, "icon": "fa-language", "tong_tc2_moi": 24.91, "ratio_tc2_moi": 0.5, "raw_avg": 0.53, "tbc": 0.53, "tbc_norm": 39.5, "rank_xet": 15}];
+    const rawUnitsData = [{"id": 1, "don_vi": "Khoa Kinh tế", "ma_don_vi": "KKT", "so_gv": 74, "so_ct": 194, "ct_per_gv": 2.62, "rank_ct": 1, "tong_gio": 130814.78, "gio_per_gv": 1767.77, "rank_gio": 2, "score": 151.0, "rank_tb": 1.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 23354.34, "baibao_h": 59128.8, "hoithao_h": 20631.66, "giaotrinh_h": 10333.32, "hdsv_h": 17366.66, "tc_sc_h": 0.0, "icon": "fa-chart-line", "tong_tc2_moi": 218.02, "ratio_tc2_moi": 2.95, "raw_avg": 2.04, "tbc": 2.79, "tbc_norm": 151.0, "rank_xet": 1}, {"id": 2, "don_vi": "Khoa Công trình", "ma_don_vi": "KCT", "so_gv": 44, "so_ct": 107, "ct_per_gv": 2.43, "rank_ct": 2, "tong_gio": 82806.16, "gio_per_gv": 1881.96, "rank_gio": 1, "score": 150.1, "rank_tb": 1.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 16933.3, "baibao_h": 43566.65, "hoithao_h": 7556.2, "giaotrinh_h": 8100.01, "hdsv_h": 5750.0, "tc_sc_h": 900.0, "icon": "fa-helmet-safety", "tong_tc2_moi": 138.01, "ratio_tc2_moi": 3.14, "raw_avg": 2.0, "tbc": 2.79, "tbc_norm": 151.0, "rank_xet": 2}, {"id": 3, "don_vi": "Khoa Điện - Điện tử", "ma_don_vi": "DDT", "so_gv": 46, "so_ct": 97, "ct_per_gv": 2.11, "rank_ct": 4, "tong_gio": 66432.85, "gio_per_gv": 1444.19, "rank_gio": 3, "score": 122.4, "rank_tb": 3.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 14581.48, "baibao_h": 34649.08, "hoithao_h": 10018.94, "giaotrinh_h": 4800.01, "hdsv_h": 2383.34, "tc_sc_h": 0.0, "icon": "fa-bolt", "tong_tc2_moi": 110.72, "ratio_tc2_moi": 2.41, "raw_avg": 1.65, "tbc": 2.26, "tbc_norm": 122.3, "rank_xet": 3}, {"id": 4, "don_vi": "Khoa Quản trị - Tài chính", "ma_don_vi": "QTC", "so_gv": 55, "so_ct": 120, "ct_per_gv": 2.18, "rank_ct": 3, "tong_gio": 70793.65, "gio_per_gv": 1287.16, "rank_gio": 6, "score": 118.0, "rank_tb": 4.5, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 11777.17, "baibao_h": 28968.86, "hoithao_h": 9947.6, "giaotrinh_h": 10433.35, "hdsv_h": 9666.67, "tc_sc_h": 0.0, "icon": "fa-coins", "tong_tc2_moi": 117.99, "ratio_tc2_moi": 2.15, "raw_avg": 1.62, "tbc": 2.17, "tbc_norm": 117.4, "rank_xet": 4}, {"id": 5, "don_vi": "Khoa Công nghệ thông tin", "ma_don_vi": "CNTT", "so_gv": 27, "so_ct": 46, "ct_per_gv": 1.7, "rank_ct": 6, "tong_gio": 36838.11, "gio_per_gv": 1364.37, "rank_gio": 4, "score": 107.0, "rank_tb": 5.0, "danh_gia_code": "both_pass", "danh_gia_text": "Vượt cả 2 tiêu chí", "badge_icon": "fa-circle-check", "badge_class": "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800", "detai_h": 7621.04, "baibao_h": 12958.73, "hoithao_h": 3008.33, "giaotrinh_h": 1700.0, "hdsv_h": 11550.01, "tc_sc_h": 0.0, "icon": "fa-laptop-code", "tong_tc2_moi": 61.4, "ratio_tc2_moi": 2.27, "raw_avg": 1.42, "tbc": 1.98, "tbc_norm": 107.1, "rank_xet": 5}, {"id": 6, "don_vi": "Khoa Đóng tàu", "ma_don_vi": "KDT", "so_gv": 19, "so_ct": 37, "ct_per_gv": 1.95, "rank_ct": 5, "tong_gio": 18935.16, "gio_per_gv": 996.59, "rank_gio": 9, "score": 99.1, "rank_tb": 7.0, "danh_gia_code": "ct_pass", "danh_gia_text": "Vượt chuẩn CT", "badge_icon": "fa-arrow-up", "badge_class": "bg-teal-50 text-teal-700 border border-teal-200 dark:bg-teal-950/60 dark:text-teal-300 dark:border-teal-800", "detai_h": 2399.99, "baibao_h": 6631.85, "hoithao_h": 6308.88, "giaotrinh_h": 1277.78, "hdsv_h": 1116.66, "tc_sc_h": 1200.0, "icon": "fa-ship", "tong_tc2_moi": 31.56, "ratio_tc2_moi": 1.66, "raw_avg": 1.39, "tbc": 1.8, "tbc_norm": 97.4, "rank_xet": 6}, {"id": 7, "don_vi": "Viện Cơ khí", "ma_don_vi": "VCK", "so_gv": 42, "so_ct": 69, "ct_per_gv": 1.64, "rank_ct": 7, "tong_gio": 47189.93, "gio_per_gv": 1123.57, "rank_gio": 7, "score": 95.2, "rank_tb": 7.0, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 15699.97, "baibao_h": 21551.07, "hoithao_h": 3688.89, "giaotrinh_h": 1600.0, "hdsv_h": 4650.0, "tc_sc_h": 0.0, "icon": "fa-gears", "tong_tc2_moi": 78.65, "ratio_tc2_moi": 1.87, "raw_avg": 1.28, "tbc": 1.75, "tbc_norm": 94.7, "rank_xet": 7}, {"id": 8, "don_vi": "Viện Môi trường", "ma_don_vi": "VMT", "so_gv": 27, "so_ct": 34, "ct_per_gv": 1.26, "rank_ct": 11, "tong_gio": 36011.11, "gio_per_gv": 1333.74, "rank_gio": 5, "score": 92.6, "rank_tb": 8.0, "danh_gia_code": "gio_pass", "danh_gia_text": "Vượt chuẩn Giờ", "badge_icon": "fa-arrow-up", "badge_class": "bg-blue-50 text-blue-700 border border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800", "detai_h": 8599.99, "baibao_h": 17219.42, "hoithao_h": 4425.01, "giaotrinh_h": 3600.03, "hdsv_h": 2166.66, "tc_sc_h": 0.0, "icon": "fa-leaf", "tong_tc2_moi": 60.02, "ratio_tc2_moi": 2.22, "raw_avg": 1.19, "tbc": 1.74, "tbc_norm": 94.1, "rank_xet": 8}, {"id": 9, "don_vi": "Khoa Hàng hải", "ma_don_vi": "KHH", "so_gv": 77, "so_ct": 122, "ct_per_gv": 1.58, "rank_ct": 8, "tong_gio": 82424.91, "gio_per_gv": 1070.45, "rank_gio": 8, "score": 91.2, "rank_tb": 8.0, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 14933.2, "baibao_h": 40709.8, "hoithao_h": 19815.24, "giaotrinh_h": 4666.68, "hdsv_h": 2299.99, "tc_sc_h": 0.0, "icon": "fa-anchor", "tong_tc2_moi": 137.37, "ratio_tc2_moi": 1.78, "raw_avg": 1.24, "tbc": 1.68, "tbc_norm": 90.9, "rank_xet": 9}, {"id": 10, "don_vi": "Khoa Máy tàu biển", "ma_don_vi": "MTB", "so_gv": 51, "so_ct": 68, "ct_per_gv": 1.33, "rank_ct": 10, "tong_gio": 50159.69, "gio_per_gv": 983.52, "rank_gio": 10, "score": 80.2, "rank_tb": 10.0, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 10399.93, "baibao_h": 26669.75, "hoithao_h": 7440.01, "giaotrinh_h": 2800.0, "hdsv_h": 2850.0, "tc_sc_h": 0.0, "icon": "fa-cogs", "tong_tc2_moi": 83.6, "ratio_tc2_moi": 1.64, "raw_avg": 1.07, "tbc": 1.48, "tbc_norm": 80.1, "rank_xet": 10}, {"id": 11, "don_vi": "Khoa Lý luận chính trị", "ma_don_vi": "LLCT", "so_gv": 27, "so_ct": 37, "ct_per_gv": 1.37, "rank_ct": 9, "tong_gio": 24859.98, "gio_per_gv": 920.74, "rank_gio": 12, "score": 78.8, "rank_tb": 10.5, "danh_gia_code": "near_tb", "danh_gia_text": "Tiệm cận TB", "badge_icon": "fa-minus", "badge_class": "bg-slate-100 text-slate-700 border border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700", "detai_h": 3199.99, "baibao_h": 14880.0, "hoithao_h": 6779.99, "giaotrinh_h": 0.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-book-open", "tong_tc2_moi": 41.43, "ratio_tc2_moi": 1.53, "raw_avg": 1.06, "tbc": 1.45, "tbc_norm": 78.5, "rank_xet": 11}, {"id": 12, "don_vi": "Khoa Cơ sở - Cơ bản", "ma_don_vi": "CSCB", "so_gv": 46, "so_ct": 47, "ct_per_gv": 1.02, "rank_ct": 13, "tong_gio": 42377.76, "gio_per_gv": 921.26, "rank_gio": 11, "score": 68.5, "rank_tb": 12.0, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 4700.0, "baibao_h": 19827.76, "hoithao_h": 10050.0, "giaotrinh_h": 400.0, "hdsv_h": 7400.0, "tc_sc_h": 0.0, "icon": "fa-atom", "tong_tc2_moi": 70.63, "ratio_tc2_moi": 1.54, "raw_avg": 0.89, "tbc": 1.28, "tbc_norm": 69.3, "rank_xet": 12}, {"id": 13, "don_vi": "TT. Giáo dục thể chất HH", "ma_don_vi": "TTGDTC", "so_gv": 18, "so_ct": 20, "ct_per_gv": 1.11, "rank_ct": 12, "tong_gio": 15149.99, "gio_per_gv": 841.67, "rank_gio": 13, "score": 67.8, "rank_tb": 12.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 800.0, "baibao_h": 6899.99, "hoithao_h": 1650.0, "giaotrinh_h": 5800.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-person-running", "tong_tc2_moi": 25.25, "ratio_tc2_moi": 1.4, "raw_avg": 0.91, "tbc": 1.25, "tbc_norm": 67.6, "rank_xet": 13}, {"id": 14, "don_vi": "Trung tâm GDQP AN", "ma_don_vi": "TTGDQP", "so_gv": 11, "so_ct": 9, "ct_per_gv": 0.82, "rank_ct": 14, "tong_gio": 5950.0, "gio_per_gv": 540.91, "rank_gio": 15, "score": 46.7, "rank_tb": 14.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 0.0, "baibao_h": 2400.0, "hoithao_h": 3550.0, "giaotrinh_h": 0.0, "hdsv_h": 0.0, "tc_sc_h": 0.0, "icon": "fa-shield-halved", "tong_tc2_moi": 9.92, "ratio_tc2_moi": 0.9, "raw_avg": 0.64, "tbc": 0.86, "tbc_norm": 46.5, "rank_xet": 14}, {"id": 15, "don_vi": "Khoa Ngoại ngữ", "ma_don_vi": "KNN", "so_gv": 50, "so_ct": 28, "ct_per_gv": 0.56, "rank_ct": 15, "tong_gio": 30050.01, "gio_per_gv": 601.0, "rank_gio": 14, "score": 41.5, "rank_tb": 14.5, "danh_gia_code": "improve", "danh_gia_text": "Cần phấn đấu", "badge_icon": "fa-arrow-trend-up", "badge_class": "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800", "detai_h": 4000.0, "baibao_h": 10900.0, "hoithao_h": 7050.0, "giaotrinh_h": 3600.0, "hdsv_h": 4500.01, "tc_sc_h": 0.0, "icon": "fa-language", "tong_tc2_moi": 50.08, "ratio_tc2_moi": 1.0, "raw_avg": 0.53, "tbc": 0.78, "tbc_norm": 42.2, "rank_xet": 15}];
 
     let currentFilterStatus = 'all';
     let searchQuery = '';
@@ -1320,7 +1431,7 @@
         tr.onclick = function() { openUnitModal(u.id); };
 
         const ctClass = u.ct_per_gv >= BENCHMARK_CT ? "text-emerald-700 dark:text-emerald-400 font-bold" : "text-slate-700 dark:text-slate-300 font-medium";
-        const gioClass = u.gio_per_gv >= BENCHMARK_GIO ? "text-blue-700 dark:text-cyan-400 font-bold" : "text-slate-700 dark:text-slate-300 font-medium";
+        const gioClass = u.ratio_tc2_moi >= BENCHMARK_TC2 ? "text-blue-700 dark:text-cyan-400 font-bold" : "text-slate-700 dark:text-slate-300 font-medium";
 
         let evalPill = '';
         if (u.danh_gia_code === 'both_pass') {
@@ -1642,6 +1753,22 @@
       document.getElementById('unitDetailModal').classList.add('hidden');
     }
 
+    
+    function prepareAndPrint() {
+      const wasDark = document.documentElement.classList.contains('dark');
+      if (wasDark) {
+        document.documentElement.classList.remove('dark');
+        if (typeof updateChartsTheme === 'function') updateChartsTheme();
+      }
+      setTimeout(function() {
+        window.print();
+        if (wasDark) {
+          document.documentElement.classList.add('dark');
+          if (typeof updateChartsTheme === 'function') updateChartsTheme();
+        }
+      }, 250);
+    }
+
     function toggleTheme() {
       const html = document.documentElement;
       const isDark = html.classList.toggle('dark');
@@ -1741,11 +1868,14 @@
         });
       }
 
-      // Chart 2: Tiêu chí 2 (Giờ / CBGV) sorted descending
-      const sortedByGio = [...rawUnitsData].sort(function(a, b) { return b.gio_per_gv - a.gio_per_gv; });
+      // Chart 2: Tiêu chí 2 (Tỷ số TC2 quy đổi / CBGV) sorted descending
+      const sortedByGio = [...rawUnitsData].sort(function(a, b) { 
+        if (b.ratio_tc2_moi !== a.ratio_tc2_moi) return b.ratio_tc2_moi - a.ratio_tc2_moi;
+        return b.tong_gio - a.tong_gio;
+      });
       const labels2 = sortedByGio.map(function(u) { return u.don_vi; });
-      const data2 = sortedByGio.map(function(u) { return u.gio_per_gv; });
-      const colors2 = sortedByGio.map(function(u) { return u.gio_per_gv >= BENCHMARK_GIO ? '#0ea5e9' : '#cbd5e1'; });
+      const data2 = sortedByGio.map(function(u) { return u.ratio_tc2_moi; });
+      const colors2 = sortedByGio.map(function(u) { return u.ratio_tc2_moi >= BENCHMARK_TC2 ? '#0ea5e9' : '#cbd5e1'; });
 
       const ctx2 = document.getElementById('chartDoiSanhGio');
       if (ctx2) {
@@ -1756,7 +1886,7 @@
             labels: labels2,
             datasets: [
               {
-                label: 'Tỷ số Giờ / Cán bộ (h)',
+                label: 'Tỷ số TC2 quy đổi / Cán bộ',
                 data: data2,
                 backgroundColor: colors2,
                 borderRadius: 6,
@@ -1764,8 +1894,8 @@
               },
               {
                 type: 'line',
-                label: 'Chuẩn toàn trường (1.206,51 h/người)',
-                data: Array(labels2.length).fill(BENCHMARK_GIO),
+                label: 'Chuẩn toàn trường: 2,01 (1.234,66 quy đổi / 600h)',
+                data: Array(labels2.length).fill(BENCHMARK_TC2),
                 borderColor: '#f59e0b',
                 borderWidth: 2,
                 borderDash: [6, 4],
@@ -1785,8 +1915,9 @@
               tooltip: {
                 callbacks: {
                   label: function(c) {
-                    if (c.dataset.type === 'line') return 'Ngưỡng Chuẩn: 1.206,51 h/người';
-                    return 'Tỷ số: ' + formatNumber(c.raw, 2) + ' h/người (' + (c.raw >= BENCHMARK_GIO ? 'Đạt' : 'Dưới') + ' chuẩn)';
+                    if (c.dataset.type === 'line') return 'Ngưỡng Chuẩn: 2,01 /người (1.234,66 quy đổi / 614 CB)';
+                    const u = sortedByGio[c.dataIndex];
+                    return 'Tỷ số TC2: ' + formatNumber(c.raw, 2) + ' /người (' + (c.raw >= BENCHMARK_TC2 ? 'Đạt' : 'Dưới') + ' chuẩn) • Giờ gốc: ' + formatNumber(u.gio_per_gv, 2) + ' h/CB (' + formatNumber(u.tong_tc2_moi, 2) + ' quy đổi)';
                   }
                 }
               }
@@ -1795,7 +1926,7 @@
               x: {
                 grid: { color: gridColor },
                 ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10 } },
-                title: { display: true, text: 'Giờ NCKH quy đổi / CBGV (h/người)', color: textColor, font: { size: 11, weight: 'bold' } }
+                title: { display: true, text: 'Tỷ số TC2 quy đổi / CBGV (Định mức 600h)', color: textColor, font: { size: 11, weight: 'bold' } }
               },
               y: {
                 grid: { display: false },
@@ -1872,7 +2003,7 @@
               y: {
                 grid: { color: gridColor },
                 ticks: { color: textColor, font: { family: 'Be Vietnam Pro', size: 10 } },
-                title: { display: true, text: 'TB 2 Tiêu Chí Chuẩn Hóa Xét Duyệt (Chuẩn TB: 1,34)', color: textColor, font: { size: 11, weight: 'bold' } }
+                title: { display: true, text: 'TB 2 Tiêu Chí Chuẩn Hóa Xét Duyệt (Chuẩn TB: 1,85)', color: textColor, font: { size: 11, weight: 'bold' } }
               }
             }
           }
